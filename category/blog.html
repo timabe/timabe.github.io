@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>tim abraham - blog</title>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <meta name="author" content="Tim Abraham" />
+        <meta name="copyright" content="Tim Abraham" />
+        <meta name="robots" content="noindex,follow">
+
+        <link rel="stylesheet" href="../theme/css/main.css" type="text/css" />
+
+</head>
+
+<body id="index" class="home">
+    <div class="logo"></div>
+        <header id="banner" class="body">
+                <h1><a href="..">tim abraham </a></h1>
+                <nav>
+
+                    <a href="../">about</a>&nbsp;
+                    <a href="../pages/kit-list-.html">reading list</a>&nbsp;
+                    <a href="../category/blog.html">blog</a>&nbsp;
+                    <a href="https://pies.timabe.me/">pies</a>&nbsp;
+                </nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="../year-in-books.html">A year in books</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2017-01-03T00:00:00-08:00">
+                January 2017
+        </abbr>
+<p>tags: <a href="../tag/books.html">books</a><a href="../tag/data.html">data</a><a href="../tag/analysis.html">analysis</a></p></footer><!-- /.post-info --><p>Back in 2015 my new year's resolution was to read more books. I always liked reading books but most of my reading at the time was consumed by the New Yorker magazine. As much as I loved that magazine (and still do), I decided I would drop the subscription and start reading books. Finding little time during the week to get solid reading sessions in, I began a new practice: I started waking early in the morning to give myself time to read, meditate, and drink coffee before leaving for work.</p>
+<p>I love that reading books gives me the opportunity to explore topics I'm interested in deeply. Over the last two years I've read a lot about history, Zen, technology, economics, and cryptography - all big interests of mine.</p>
+<p>Here's a quick analysis I put together of my reading over the past two years. I hope it motivates me to continue this great hobby in 2017.</p>
+<h4>Pulling data about my reading habits</h4>
+<p>You can find a list of everything I've read going back to 2015 on <a href="https://kit.com/timabe/books-i-read-2015-2016">my kit page</a>. Since I got most of my books on Amazon, it was pretty easy to download a csv of all the books I've read, along with their ISBN number. I can also use the order dates to roughly guess when I started and finished each book.</p>
+<p>I found that by using the <a href="https://developers.google.com/books">Google Books API</a>, I could look up extra information on the books by ISBN number and get things like number of pages, categories, publish date, and such. Here's a quick example of an R function I wrote that wraps up the functionality to pings the API. You just feed it the title of the book and the ISBN code.</p>
+<div class="highlight"><pre>google_book_info <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>title<span class="p">,</span> isbn_code<span class="p">,</span> results <span class="o">=</span> <span class="m">1</span><span class="p">,</span> api_key<span class="p">)</span> <span class="p">{</span>
+  title <span class="o">&lt;-</span> <span class="kp">tolower</span><span class="p">(</span>str_replace_all<span class="p">(</span>title<span class="p">,</span> pattern<span class="o">=</span><span class="s">&#39; &#39;</span><span class="p">,</span> replacement<span class="o">=</span><span class="s">&#39;+&#39;</span><span class="p">))</span>
+  <span class="kn">library</span><span class="p">(</span>jsonlite<span class="p">)</span>
+  api_key <span class="o">=</span> <span class="s">&#39;&lt;My API Key&gt;&#39;</span> <span class="c1"># not necessary but probably good</span>
+  <span class="c1"># if you&#39;re going to call the function a lot</span>
+  url <span class="o">&lt;-</span> <span class="kp">paste0</span><span class="p">(</span>
+    <span class="s">&#39;https://www.googleapis.com/books/v1/volumes?q=&#39;</span><span class="p">,</span>
+    title<span class="p">,</span> <span class="s">&#39;&amp;isbn=&#39;</span><span class="p">,</span> isbn_code<span class="p">,</span><span class="s">&#39;&amp;maxResults=&#39;</span> <span class="p">,</span>
+    results<span class="p">,</span> <span class="s">&#39;&amp;key=&#39;</span><span class="p">,</span> api_key<span class="p">)</span>
+  fromJSON<span class="p">(</span><span class="kp">url</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h4>How much did I read?</h4>
+<p>I read 13 books in both 2015 and 2016. That's about one a month. But I must have read much longer books in 2016, because I nearly doubled my pages read.</p>
+<p><img alt="Pages by year" src="../images/pages_by_year.png" /></p>
+<p>I don't know how many hours that took, but I can back out an estimate. Let's say I read the average speed of 240 words per minute. I probably am a bit slower than average if anything, but we'll go with the global average here. Most books have about 300 words per page. That ends up equaling about 120 hours of reading time - or about 20 minutes a day. That sounds about right, given that I probably only read 5 days per week and it's usually for half an hour in the morning and a bit more on the train.</p>
+<p>I got to 5791 pages by the end of the year in a pretty uniform fashion.</p>
+<p><img alt="Cumulative pages" src="../images/cpages.png" /></p>
+<h4>Quickest and Slowest Reads</h4>
+<p>The longest book I read was Neal Stephenson's <a href="https://en.wikipedia.org/wiki/Cryptonomicon">Cryptonomicon</a> and the shortest book was <a href="https://en.wikipedia.org/wiki/Zen_Mind,_Beginner's_Mind">Zen Mind, Beginner's Mind</a>, both classics in science fiction/cyberpunk and Zen Buddism.</p>
+<p>Some books I read very fast, while others I slogged through. According to this chart, and my own memory, <a href="https://en.wikipedia.org/wiki/Zen_and_the_Art_of_Motorcycle_Maintenance">Zen and the Art of Motorcycle Maintenance</a> took me a long time to read. It's another classic, but it's incredibly dense and way to philosophical for my liking. I brought that book on my two week summer vacation, too, so I bet had it not been for the extra reading time I had on that trip it would have taken even longer. I tend to read pop science books like <a href="https://en.wikipedia.org/wiki/The_Better_Angels_of_Our_Nature">Better Angels of Our Nature</a>, and <a href="https://en.wikipedia.org/wiki/Quiet:_The_Power_of_Introverts_in_a_World_That_Can't_Stop_Talking">Quiet</a>, a book about introversion, very fast. That matches my intuition - I like those kind of books and tend to not get distracted when I read them. I also sometimes pick and chose the parts I want to read in a book like that, which was the case with Mr. Pinker's book. I remember racing through "Zero to One", but I must have started it a few days before I really started digging in, as my pace was middle of the pack on that one.
+<img alt="Pages per Day" src="../images/time_to_finish.png" /></p>
+<h4>Genres</h4>
+<p>In 2016 my favorite type of book to read dealt with Psychology. I read no Psychology books in 2015. Not a huge fiction reader, I dropped from 3 in 2015 to only 1 in 2016. Granted that one fiction book was almost 1200 pages. Still, I think I should try a few more in fiction in 2017. Any suggestions?
+<img alt="Genres" src="../images/categories.png" /></p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h3><a href="../antifragile.html" rel="bookmark"
+                           title="Permalink to Antifragile">Antifragile</a></h3>
+                </header>
+
+                <div class="entry-content">
+                <p>More wisdom here than anywhere</p>
+                <a class="readmore" href="../antifragile.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h3><a href="../nnt.html" rel="bookmark"
+                           title="Permalink to Nassim Taleb">Nassim Taleb</a></h3>
+                </header>
+
+                <div class="entry-content">
+                <p>What my favorite author writes about.</p>
+                <a class="readmore" href="../nnt.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h3><a href="../history-of-the-jews.html" rel="bookmark"
+                           title="Permalink to History of The Jews: A lengthy review of a lenghty book.">History of The Jews: A lengthy review of a lenghty book.</a></h3>
+                </header>
+
+                <div class="entry-content">
+                <p>First book of 2016</p>
+                <a class="readmore" href="../history-of-the-jews.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+            </ol><!-- /#posts-list -->
+            </section><!-- /#content -->
+        <section id="extras" class="body">
+                <div class="social">
+                    <ul>
+
+                        <li><a href="https://twitter.com/timabe">twitter</a></li>
+                        <li><a href="https://github.com/timabe">github</a></li>
+                    </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+
+
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("UA-73240359-1");
+    pageTracker._trackPageview();
+    } catch(err) {}</script>
+</body>
+</html>
