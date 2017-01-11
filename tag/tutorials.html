@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>tim abraham - tutorials</title>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <meta name="author" content="Tim Abraham" />
+        <meta name="copyright" content="Tim Abraham" />
+        <meta name="robots" content="noindex,follow">
+
+        <link rel="stylesheet" href="../theme/css/main.css" type="text/css" />
+
+</head>
+
+<body id="index" class="home">
+    <div class="logo"></div>
+        <header id="banner" class="body">
+                <h1><a href="..">tim abraham </a></h1>
+                <nav>
+
+                    <a href="..//">about</a>&nbsp;
+                    <a href="../pages/kit-list.html">reading list</a>&nbsp;
+                    <a href="../category/blog.html">blog</a>&nbsp;
+                    <a href="https://pies.timabe.me/">pies</a>&nbsp;
+                </nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="../one_hr_analytics.html">Bootstrap your Analytics in 1 hour or Less</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2017-01-10T00:00:00-08:00">
+                January 2017
+        </abbr>
+<p>tags: <a href="../tag/analytics.html">analytics</a><a href="../tag/tutorials.html">tutorials</a><a href="../tag/data.html">data</a></p></footer><!-- /.post-info --><p><img alt="" src="https://cdn-images-1.medium.com/max/800/1*xfavpsRMhnfgQbQ-7SkESg.png" /></p>
+<p>Data is well understood to be critical to any company’s success. Ironically,
+many startups tend to shy away from analytics — especially early on. I believe
+this partially stems from a myth that if you want to have analytics you should
+carve out around 25% of your engineering resources to fund it. To a founder with
+a vision, a 25% distraction from executing on that vision in exchange for some
+visibility and insight is too expensive.</p>
+<p><strong>But setting up some basic analytics for your product isn’t nearly as difficult
+as you think!</strong> Certainly nowhere near 25% of engineering. While that may be
+true for mature companies with many large and complicated data pipelines, a
+small company can easily roll something up with minimal costs. <strong>To prove it,
+I’m going to show you how you can spend 1 hour setting up a system that should
+be adequate for the next 6 months of your company’s life.</strong></p>
+<p>First, let’s talk about what I mean by “having analytics”. I think the minimum
+requirements are</p>
+<ul>
+<li>Simple access to your key metrics for everyone in your company</li>
+<li>A nightly stats email or slack message going out to your team</li>
+<li>A few hosted dashboards to put up on monitors in the office</li>
+<li>A place where anyone in your company can explore data (regardless of technical
+acumen)</li>
+</ul>
+<p>In other words, you need <strong>metrics </strong>and <strong>a way to spread them throughout your
+organization</strong>. Let’s begin with the metrics part:</p>
+<h3>Your Metrics are Already in your Database</h3>
+<p>Since pie is way more delicious than widgets, let’s imagine you’ve just started
+<a href="https://github.com/timabe/pies">a pie delivery company</a>. You decide that at a
+minimum, the success of your business will depend on</p>
+<ol>
+<li>Your ability to get potential pie consumers</li>
+<li>Your ability to sell pies to those consumers</li>
+</ol>
+<p><img alt="" src="https://cdn-images-1.medium.com/max/800/1*yPRxRb5UghNa-EZmeuuteg.png" /></p>
+<p>If you can reliably grow both 1 and 2 you won’t have too much else to worry
+about. You decide based on that to track</p>
+<ol>
+<li>New user registrations</li>
+<li>Pie sales</li>
+<li>Repeat usage</li>
+</ol>
+<p>You know you can derive a few more interesting metrics just based off of user
+registration and pie sale data, but for now you’re cool with these big 3 high
+level metrics. Now how do you actually make these?</p>
+<p>At this point a lot of people head to Google Analytics, Mixpanel, or some other
+3rd party event analytics provider. While I love these products, and I love
+event analytics, I also think that this is part of the reason why early stage
+startups punt on analytics. To set these up the right way means engineering time
+spent on something orthogonal to developing your core product.</p>
+<p>So before you make a case for the engineering team to spend a cycle
+instrumenting user signups and pie sales, consider this: <strong>these metrics are
+probably already in your application database.</strong> In other words, if you’re
+building a product to delivery pie to users and you don’t have a database table
+or collection to store your users or the pies they’ve ordered . . . well then a
+lack of analytics is not your biggest concern. Remember, a piece of software is
+basically made up of data and logic to operate on that data. Many don’t realize
+that data in your application can actually be used for analytics as well. So
+feel free to put your event analytics instrumentation in the backlog and let’s
+see how much we can get done with just your application database.</p>
+<p>Now how do you get these metrics out?</p>
+<p><img alt="" src="https://cdn-images-1.medium.com/max/800/0*PpCld0A2l3pM9dpq." /></p>
+<h3>Metabase: An analytics tool that works with your database</h3>
+<p>There are a lot of ways to fetch information from a database, but there is only
+one <em>easiest</em> way, and this post is about easy ways.</p>
+<p>My favorite tool that I recommend for any company I advise is
+<a href="http://www.metabase.com/">Metabase</a>. Metabase is the fastest, easiest way to
+share data and analytics inside your company. It’s super simple to install or
+deploy, works with almost all databases, and best of all is open source and 100%
+free — so you should definitely test it out first before you go with some of the
+paid options out there.</p>
+<p><em>Full disclosure: I work at </em><a href="http://expa.com/">expa</a><em>, where Metabase was
+started, and I am an advisor to the company. I have also, in just the past year,
+advised 8 different technology startups on data and analytics and in each case
+have recommended Metabase for them. They all continue to use it.</em></p>
+<h3>Installation/Deployment</h3>
+<p>If you are just in evaluation mode, I would recommend downloading Metabase’s
+<a href="http://www.metabase.com/start/mac.html">mac app</a>. Follow their <a href="http://www.metabase.com/docs/v0.20.3/setting-up-metabase.html">setup
+guide</a>, and
+you’re ready to create some metrics. However, deploying Metabase either on
+<a href="http://www.metabase.com/docs/v0.20.3/operations-guide/running-metabase-on-heroku.html">Heroku</a>
+or <a href="http://www.metabase.com/docs/v0.20.3/operations-guide/running-metabase-on-elastic-beanstalk.html">AWS Elastic
+Beanstalk</a>
+(best) is highly recommended, as you’ll get a persistent application that’s
+hosted in the cloud and your whole team can use it.</p>
+<p>For a full guide on the deployment process, <a href="https://www.youtube.com/watch?v=wmJ02K8LIFk">check out my video
+tutoria</a>l. Metabase’s
+<a href="http://www.metabase.com/docs/v0.20.3/operations-guide/start.html#installing-and-running-metabase">documentation</a>
+is pretty comprehensive, as well. If you’re a non-technical person, you may have
+to shoulder-tap an engineer, especially if your application database is in a VPC
+on AWS. On that note, it’s also a good idea to create a read replica of your
+application database and plug that into Metabase. That way you can ensure any
+heavy duty or hanging queries won’t affect your users.</p>
+<p>Once you get Metabase deployed, sign up and add your database credentials. Next,
+invite your team members so they can get in on the fun.</p>
+<h3>Creating your metrics</h3>
+<p>Believe it or not, the rest is pretty easy. The first thing you’ll want to do is
+build your metrics. In Metabase parlance, these are “Questions”. If you’re the
+pie business, and you have a reasonably organized schema, you should be able to
+get your key metrics with just a few clicks. No SQL is required, but of course
+if you like SQL that option is available.</p>
+<p>So build your top metrics, and see if any other interesting ones pop into your
+mind. Although you can find <a href="https://www.quora.com/How-and-why-are-pie-charts-considered-evil-by-data-visualization-experts">hundreds of smart people who will tell you to never
+make a pie
+chart</a>,
+I won’t hate on you for making a pie chart based on pie popularity. If metabase
+is the meta database, it’s only right to make your pie chart meta.</p>
+<h3>Finishing touches</h3>
+<p>Next you’ll want to setup a daily stats email. I don’t know what it is about
+them, but everyone loves daily stats emails. Metabase calls these “Pulses”, and
+even lets you use Slack if you’re too cool for email. Simply add the Questions
+you want to send out, pick a time and cadence (it doesn’t have to be daily but
+that tends to be the most helpful, IMO) and a list of recipients or slack
+channel and you’re done!</p>
+<p>Lastly, everyone loves to see pretty dashboards up on the monitors in the
+office. Don’t keep them in suspense. Making a dashboard is also quite
+straightforward. Pick some Questions and organize them as best as your design
+sensibilities allow you. Load it up on an external monitor you’ve got up in the
+office, full-screen it, and you’re done!</p>
+<h3>Recap</h3>
+<p>You just set up a pretty solid analytics infrastructure for your startup in
+about an hour. Now your whole team can explore your application database,
+receive nightly emails, and view a company-wide dashboard. Even better, This
+setup should last you for quite some time — at least 6 months unless you start
+experiencing crazy growth (in which case, no complaining).</p>
+<p><em>Ready to try it out? Skeptical of the 1 hour guarantee? Check out my YouTube
+tutorials, </em><a href="https://www.youtube.com/watch?v=wmJ02K8LIFk">part 1</a><em> and </em><a href="https://www.youtube.com/watch?v=Abza9SKoWPs">part
+2</a><em>, where I walk you through
+everything you need to know.</em></p>                </article>
+            </aside><!-- /#featured -->
+            </ol><!-- /#posts-list -->
+            </section><!-- /#content -->
+        <section id="extras" class="body">
+                <div class="social">
+                    <ul>
+
+                        <li><a href="https://twitter.com/timabe">twitter</a></li>
+                        <li><a href="https://github.com/timabe">github</a></li>
+                    </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+
+
+</body>
+</html>

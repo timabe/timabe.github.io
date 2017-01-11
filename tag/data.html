@@ -18,8 +18,8 @@
                 <h1><a href="..">tim abraham </a></h1>
                 <nav>
 
-                    <a href="../">about</a>&nbsp;
-                    <a href="../pages/kit-list-.html">reading list</a>&nbsp;
+                    <a href="..//">about</a>&nbsp;
+                    <a href="../pages/kit-list.html">reading list</a>&nbsp;
                     <a href="../category/blog.html">blog</a>&nbsp;
                     <a href="https://pies.timabe.me/">pies</a>&nbsp;
                 </nav>
@@ -27,45 +27,154 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="../year-in-books.html">A year in books</a></h1>
+                    <h1 class="entry-title"><a href="../one_hr_analytics.html">Bootstrap your Analytics in 1 hour or Less</a></h1>
 <footer class="post-info">
-        <abbr class="published" title="2017-01-03T00:00:00-08:00">
+        <abbr class="published" title="2017-01-10T00:00:00-08:00">
                 January 2017
         </abbr>
-<p>tags: <a href="../tag/books.html">books</a><a href="../tag/data.html">data</a><a href="../tag/analysis.html">analysis</a></p></footer><!-- /.post-info --><p>Back in 2015 my new year's resolution was to read more books. I always liked reading books but most of my reading at the time was consumed by the New Yorker magazine. As much as I loved that magazine (and still do), I decided I would drop the subscription and start reading books. Finding little time during the week to get solid reading sessions in, I began a new practice: I started waking early in the morning to give myself time to read, meditate, and drink coffee before leaving for work.</p>
-<p>I love that reading books gives me the opportunity to explore topics I'm interested in deeply. Over the last two years I've read a lot about history, Zen, technology, economics, and cryptography - all big interests of mine.</p>
-<p>Here's a quick analysis I put together of my reading over the past two years. I hope it motivates me to continue this great hobby in 2017.</p>
-<h4>Pulling data about my reading habits</h4>
-<p>You can find a list of everything I've read going back to 2015 on <a href="https://kit.com/timabe/books-i-read-2015-2016">my kit page</a>. Since I got most of my books on Amazon, it was pretty easy to download a csv of all the books I've read, along with their ISBN number. I can also use the order dates to roughly guess when I started and finished each book.</p>
-<p>I found that by using the <a href="https://developers.google.com/books">Google Books API</a>, I could look up extra information on the books by ISBN number and get things like number of pages, categories, publish date, and such. Here's a quick example of an R function I wrote that wraps up the functionality to pings the API. You just feed it the title of the book and the ISBN code.</p>
-<div class="highlight"><pre><span class="n">google_book_info</span> <span class="o">&lt;-</span> <span class="n">function</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">isbn_code</span><span class="p">,</span> <span class="n">results</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">api_key</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">title</span> <span class="o">&lt;-</span> <span class="n">tolower</span><span class="p">(</span><span class="n">str_replace_all</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">pattern</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">replacement</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="p">))</span>
-  <span class="n">library</span><span class="p">(</span><span class="n">jsonlite</span><span class="p">)</span>
-  <span class="n">api_key</span> <span class="o">=</span> <span class="s1">&#39;&lt;My API Key&gt;&#39;</span> <span class="c1"># not necessary but probably good</span>
-  <span class="c1"># if you&#39;re going to call the function a lot</span>
-  <span class="n">url</span> <span class="o">&lt;-</span> <span class="n">paste0</span><span class="p">(</span>
-    <span class="s1">&#39;https://www.googleapis.com/books/v1/volumes?q=&#39;</span><span class="p">,</span>
-    <span class="n">title</span><span class="p">,</span> <span class="s1">&#39;&amp;isbn=&#39;</span><span class="p">,</span> <span class="n">isbn_code</span><span class="p">,</span><span class="s1">&#39;&amp;maxResults=&#39;</span> <span class="p">,</span>
-    <span class="n">results</span><span class="p">,</span> <span class="s1">&#39;&amp;key=&#39;</span><span class="p">,</span> <span class="n">api_key</span><span class="p">)</span>
-  <span class="n">fromJSON</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="p">}</span>
-</pre></div>
-
-
-<h4>How much did I read?</h4>
-<p>I read 13 books in both 2015 and 2016. That's about one a month. But I must have read much longer books in 2016, because I nearly doubled my pages read.</p>
-<p><img alt="Pages by year" src="https://cloud.githubusercontent.com/assets/1427277/21669772/5efe3274-d2c3-11e6-8180-c52a356f4df5.png" /></p>
-<p>I don't know how many hours that took, but I can back out an estimate. Let's say I read the average speed of 240 words per minute. I probably am a bit slower than average if anything, but we'll go with the global average here. Most books have about 300 words per page. That ends up equaling about 120 hours of reading time - or about 20 minutes a day. That sounds about right, given that I probably only read 5 days per week and it's usually for half an hour in the morning and a bit more on the train.</p>
-<p>I got to 5791 pages by the end of the year in a pretty uniform fashion.</p>
-<p><img alt="Cumulative pages" src="https://cloud.githubusercontent.com/assets/1427277/21669775/5f036c8a-d2c3-11e6-8f5c-1f95a6d984b8.png" /></p>
-<h4>Quickest and Slowest Reads</h4>
-<p>The longest book I read was Neal Stephenson's <a href="https://en.wikipedia.org/wiki/Cryptonomicon">Cryptonomicon</a> and the shortest book was <a href="https://en.wikipedia.org/wiki/Zen_Mind,_Beginner's_Mind">Zen Mind, Beginner's Mind</a>, both classics in science fiction/cyberpunk and Zen Buddism.</p>
-<p>Some books I read very fast, while others I slogged through. According to this chart, and my own memory, <a href="https://en.wikipedia.org/wiki/Zen_and_the_Art_of_Motorcycle_Maintenance">Zen and the Art of Motorcycle Maintenance</a> took me a long time to read. It's another classic, but it's incredibly dense and way to philosophical for my liking. I brought that book on my two week summer vacation, too, so I bet had it not been for the extra reading time I had on that trip it would have taken even longer. I tend to read pop science books like <a href="https://en.wikipedia.org/wiki/The_Better_Angels_of_Our_Nature">Better Angels of Our Nature</a>, and <a href="https://en.wikipedia.org/wiki/Quiet:_The_Power_of_Introverts_in_a_World_That_Can't_Stop_Talking">Quiet</a>, a book about introversion, very fast. That matches my intuition - I like those kind of books and tend to not get distracted when I read them. I also sometimes pick and chose the parts I want to read in a book like that, which was the case with Mr. Pinker's book. I remember racing through <a href="https://en.wikipedia.org/wiki/Zero_to_One">Zero to One</a>, but I must have started it a few days before I really started digging in, as my pace was middle of the pack on that one.
-<img alt="Pages per Day" src="https://cloud.githubusercontent.com/assets/1427277/21669774/5f01673c-d2c3-11e6-9741-8ddbe73ed5d5.png" /></p>
-<h4>Genres</h4>
-<p>In 2016 my favorite type of book to read dealt with Psychology. I read no Psychology books in 2015. Not a huge fiction reader, I dropped from 3 in 2015 to only 1 in 2016. Granted that one fiction book was almost 1200 pages. Still, I think I should try a few more in fiction in 2017. Any suggestions?
-<img alt="Genres" src="https://cloud.githubusercontent.com/assets/1427277/21669861/137d70f2-d2c4-11e6-9149-1e3c31718d04.png" /></p><p><a href="../year-in-books.html#disqus_thread">Comments</a>.</p>                </article>
+<p>tags: <a href="../tag/analytics.html">analytics</a><a href="../tag/tutorials.html">tutorials</a><a href="../tag/data.html">data</a></p></footer><!-- /.post-info --><p><img alt="" src="https://cdn-images-1.medium.com/max/800/1*xfavpsRMhnfgQbQ-7SkESg.png" /></p>
+<p>Data is well understood to be critical to any company’s success. Ironically,
+many startups tend to shy away from analytics — especially early on. I believe
+this partially stems from a myth that if you want to have analytics you should
+carve out around 25% of your engineering resources to fund it. To a founder with
+a vision, a 25% distraction from executing on that vision in exchange for some
+visibility and insight is too expensive.</p>
+<p><strong>But setting up some basic analytics for your product isn’t nearly as difficult
+as you think!</strong> Certainly nowhere near 25% of engineering. While that may be
+true for mature companies with many large and complicated data pipelines, a
+small company can easily roll something up with minimal costs. <strong>To prove it,
+I’m going to show you how you can spend 1 hour setting up a system that should
+be adequate for the next 6 months of your company’s life.</strong></p>
+<p>First, let’s talk about what I mean by “having analytics”. I think the minimum
+requirements are</p>
+<ul>
+<li>Simple access to your key metrics for everyone in your company</li>
+<li>A nightly stats email or slack message going out to your team</li>
+<li>A few hosted dashboards to put up on monitors in the office</li>
+<li>A place where anyone in your company can explore data (regardless of technical
+acumen)</li>
+</ul>
+<p>In other words, you need <strong>metrics </strong>and <strong>a way to spread them throughout your
+organization</strong>. Let’s begin with the metrics part:</p>
+<h3>Your Metrics are Already in your Database</h3>
+<p>Since pie is way more delicious than widgets, let’s imagine you’ve just started
+<a href="https://github.com/timabe/pies">a pie delivery company</a>. You decide that at a
+minimum, the success of your business will depend on</p>
+<ol>
+<li>Your ability to get potential pie consumers</li>
+<li>Your ability to sell pies to those consumers</li>
+</ol>
+<p><img alt="" src="https://cdn-images-1.medium.com/max/800/1*yPRxRb5UghNa-EZmeuuteg.png" /></p>
+<p>If you can reliably grow both 1 and 2 you won’t have too much else to worry
+about. You decide based on that to track</p>
+<ol>
+<li>New user registrations</li>
+<li>Pie sales</li>
+<li>Repeat usage</li>
+</ol>
+<p>You know you can derive a few more interesting metrics just based off of user
+registration and pie sale data, but for now you’re cool with these big 3 high
+level metrics. Now how do you actually make these?</p>
+<p>At this point a lot of people head to Google Analytics, Mixpanel, or some other
+3rd party event analytics provider. While I love these products, and I love
+event analytics, I also think that this is part of the reason why early stage
+startups punt on analytics. To set these up the right way means engineering time
+spent on something orthogonal to developing your core product.</p>
+<p>So before you make a case for the engineering team to spend a cycle
+instrumenting user signups and pie sales, consider this: <strong>these metrics are
+probably already in your application database.</strong> In other words, if you’re
+building a product to delivery pie to users and you don’t have a database table
+or collection to store your users or the pies they’ve ordered . . . well then a
+lack of analytics is not your biggest concern. Remember, a piece of software is
+basically made up of data and logic to operate on that data. Many don’t realize
+that data in your application can actually be used for analytics as well. So
+feel free to put your event analytics instrumentation in the backlog and let’s
+see how much we can get done with just your application database.</p>
+<p>Now how do you get these metrics out?</p>
+<p><img alt="" src="https://cdn-images-1.medium.com/max/800/0*PpCld0A2l3pM9dpq." /></p>
+<h3>Metabase: An analytics tool that works with your database</h3>
+<p>There are a lot of ways to fetch information from a database, but there is only
+one <em>easiest</em> way, and this post is about easy ways.</p>
+<p>My favorite tool that I recommend for any company I advise is
+<a href="http://www.metabase.com/">Metabase</a>. Metabase is the fastest, easiest way to
+share data and analytics inside your company. It’s super simple to install or
+deploy, works with almost all databases, and best of all is open source and 100%
+free — so you should definitely test it out first before you go with some of the
+paid options out there.</p>
+<p><em>Full disclosure: I work at </em><a href="http://expa.com/">expa</a><em>, where Metabase was
+started, and I am an advisor to the company. I have also, in just the past year,
+advised 8 different technology startups on data and analytics and in each case
+have recommended Metabase for them. They all continue to use it.</em></p>
+<h3>Installation/Deployment</h3>
+<p>If you are just in evaluation mode, I would recommend downloading Metabase’s
+<a href="http://www.metabase.com/start/mac.html">mac app</a>. Follow their <a href="http://www.metabase.com/docs/v0.20.3/setting-up-metabase.html">setup
+guide</a>, and
+you’re ready to create some metrics. However, deploying Metabase either on
+<a href="http://www.metabase.com/docs/v0.20.3/operations-guide/running-metabase-on-heroku.html">Heroku</a>
+or <a href="http://www.metabase.com/docs/v0.20.3/operations-guide/running-metabase-on-elastic-beanstalk.html">AWS Elastic
+Beanstalk</a>
+(best) is highly recommended, as you’ll get a persistent application that’s
+hosted in the cloud and your whole team can use it.</p>
+<p>For a full guide on the deployment process, <a href="https://www.youtube.com/watch?v=wmJ02K8LIFk">check out my video
+tutoria</a>l. Metabase’s
+<a href="http://www.metabase.com/docs/v0.20.3/operations-guide/start.html#installing-and-running-metabase">documentation</a>
+is pretty comprehensive, as well. If you’re a non-technical person, you may have
+to shoulder-tap an engineer, especially if your application database is in a VPC
+on AWS. On that note, it’s also a good idea to create a read replica of your
+application database and plug that into Metabase. That way you can ensure any
+heavy duty or hanging queries won’t affect your users.</p>
+<p>Once you get Metabase deployed, sign up and add your database credentials. Next,
+invite your team members so they can get in on the fun.</p>
+<h3>Creating your metrics</h3>
+<p>Believe it or not, the rest is pretty easy. The first thing you’ll want to do is
+build your metrics. In Metabase parlance, these are “Questions”. If you’re the
+pie business, and you have a reasonably organized schema, you should be able to
+get your key metrics with just a few clicks. No SQL is required, but of course
+if you like SQL that option is available.</p>
+<p>So build your top metrics, and see if any other interesting ones pop into your
+mind. Although you can find <a href="https://www.quora.com/How-and-why-are-pie-charts-considered-evil-by-data-visualization-experts">hundreds of smart people who will tell you to never
+make a pie
+chart</a>,
+I won’t hate on you for making a pie chart based on pie popularity. If metabase
+is the meta database, it’s only right to make your pie chart meta.</p>
+<h3>Finishing touches</h3>
+<p>Next you’ll want to setup a daily stats email. I don’t know what it is about
+them, but everyone loves daily stats emails. Metabase calls these “Pulses”, and
+even lets you use Slack if you’re too cool for email. Simply add the Questions
+you want to send out, pick a time and cadence (it doesn’t have to be daily but
+that tends to be the most helpful, IMO) and a list of recipients or slack
+channel and you’re done!</p>
+<p>Lastly, everyone loves to see pretty dashboards up on the monitors in the
+office. Don’t keep them in suspense. Making a dashboard is also quite
+straightforward. Pick some Questions and organize them as best as your design
+sensibilities allow you. Load it up on an external monitor you’ve got up in the
+office, full-screen it, and you’re done!</p>
+<h3>Recap</h3>
+<p>You just set up a pretty solid analytics infrastructure for your startup in
+about an hour. Now your whole team can explore your application database,
+receive nightly emails, and view a company-wide dashboard. Even better, This
+setup should last you for quite some time — at least 6 months unless you start
+experiencing crazy growth (in which case, no complaining).</p>
+<p><em>Ready to try it out? Skeptical of the 1 hour guarantee? Check out my YouTube
+tutorials, </em><a href="https://www.youtube.com/watch?v=wmJ02K8LIFk">part 1</a><em> and </em><a href="https://www.youtube.com/watch?v=Abza9SKoWPs">part
+2</a><em>, where I walk you through
+everything you need to know.</em></p>                </article>
             </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h3><a href="../year-in-books.html" rel="bookmark"
+                           title="Permalink to A year in books">A year in books</a></h3>
+                </header>
+
+                <div class="entry-content">
+                <p>An analysis of my reading habits last year</p>
+                <a class="readmore" href="../year-in-books.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
             </ol><!-- /#posts-list -->
             </section><!-- /#content -->
         <section id="extras" class="body">
@@ -80,23 +189,5 @@
 
 
 
-    <script type="text/javascript">
-    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-    </script>
-    <script type="text/javascript">
-    try {
-        var pageTracker = _gat._getTracker("UA-73240359-1");
-    pageTracker._trackPageview();
-    } catch(err) {}</script>
-<script type="text/javascript">
-    var disqus_shortname = 'timabe-me';
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-</script>
 </body>
 </html>
