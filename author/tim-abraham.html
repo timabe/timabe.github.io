@@ -27,142 +27,57 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="http://timabe.me/posts/2017/01/one_hr_analytics/">Bootstrap your Analytics in 1 hour or Less</a></h1>
+                    <h1 class="entry-title"><a href="http://timabe.me/posts/2017/03/joule_review/">Product Review: Chefsteps' Joule</a></h1>
 <footer class="post-info">
-        <abbr class="published" title="2017-01-10T00:00:00-08:00">
-                January 2017
+        <abbr class="published" title="2017-03-06T00:00:00-08:00">
+                March 2017
         </abbr>
-<p>tags: <a href="http://timabe.me/tag/analytics/">analytics</a><a href="http://timabe.me/tag/tutorials/">tutorials</a><a href="http://timabe.me/tag/data/">data</a></p></footer><!-- /.post-info --><p><img alt="" src="https://cdn-images-1.medium.com/max/800/1*xfavpsRMhnfgQbQ-7SkESg.png" /></p>
-<p>Data is well understood to be critical to any company’s success. Ironically,
-many startups tend to shy away from analytics — especially early on. I believe
-this partially stems from a myth that if you want to have analytics you should
-carve out around 25% of your engineering resources to fund it. To a founder with
-a vision, a 25% distraction from executing on that vision in exchange for some
-visibility and insight is too expensive.</p>
-<p><strong>But setting up some basic analytics for your product isn’t nearly as difficult
-as you think!</strong> Certainly nowhere near 25% of engineering. While that may be
-true for mature companies with many large and complicated data pipelines, a
-small company can easily roll something up with minimal costs. <strong>To prove it,
-I’m going to show you how you can spend 1 hour setting up a system that should
-be adequate for the next 6 months of your company’s life.</strong></p>
-<p>First, let’s talk about what I mean by “having analytics”. I think the minimum
-requirements are</p>
-<ul>
-<li>Simple access to your key metrics for everyone in your company</li>
-<li>A nightly stats email or slack message going out to your team</li>
-<li>A few hosted dashboards to put up on monitors in the office</li>
-<li>A place where anyone in your company can explore data (regardless of technical
-acumen)</li>
-</ul>
-<p>In other words, you need <strong>metrics </strong>and <strong>a way to spread them throughout your
-organization</strong>. Let’s begin with the metrics part:</p>
-<h3>Your Metrics are Already in your Database</h3>
-<p>Since pie is way more delicious than widgets, let’s imagine you’ve just started
-<a href="https://github.com/timabe/pies">a pie delivery company</a>. You decide that at a
-minimum, the success of your business will depend on</p>
-<ol>
-<li>Your ability to get potential pie consumers</li>
-<li>Your ability to sell pies to those consumers</li>
-</ol>
-<p><img alt="" src="https://cdn-images-1.medium.com/max/800/1*yPRxRb5UghNa-EZmeuuteg.png" /></p>
-<p>If you can reliably grow both 1 and 2 you won’t have too much else to worry
-about. You decide based on that to track</p>
-<ol>
-<li>New user registrations</li>
-<li>Pie sales</li>
-<li>Repeat usage</li>
-</ol>
-<p>You know you can derive a few more interesting metrics just based off of user
-registration and pie sale data, but for now you’re cool with these big 3 high
-level metrics. Now how do you actually make these?</p>
-<p>At this point a lot of people head to Google Analytics, Mixpanel, or some other
-3rd party event analytics provider. While I love these products, and I love
-event analytics, I also think that this is part of the reason why early stage
-startups punt on analytics. To set these up the right way means engineering time
-spent on something orthogonal to developing your core product.</p>
-<p>So before you make a case for the engineering team to spend a cycle
-instrumenting user signups and pie sales, consider this: <strong>these metrics are
-probably already in your application database.</strong> In other words, if you’re
-building a product to delivery pie to users and you don’t have a database table
-or collection to store your users or the pies they’ve ordered . . . well then a
-lack of analytics is not your biggest concern. Remember, a piece of software is
-basically made up of data and logic to operate on that data. Many don’t realize
-that data in your application can actually be used for analytics as well. So
-feel free to put your event analytics instrumentation in the backlog and let’s
-see how much we can get done with just your application database.</p>
-<p>Now how do you get these metrics out?</p>
-<p><img alt="" src="https://cdn-images-1.medium.com/max/800/0*PpCld0A2l3pM9dpq." /></p>
-<h3>Metabase: An analytics tool that works with your database</h3>
-<p>There are a lot of ways to fetch information from a database, but there is only
-one <em>easiest</em> way, and this post is about easy ways.</p>
-<p>My favorite tool that I recommend for any company I advise is
-<a href="http://www.metabase.com/">Metabase</a>. Metabase is the fastest, easiest way to
-share data and analytics inside your company. It’s super simple to install or
-deploy, works with almost all databases, and best of all is open source and 100%
-free — so you should definitely test it out first before you go with some of the
-paid options out there.</p>
-<p><em>Full disclosure: I work at </em><a href="http://expa.com/">expa</a><em>, where Metabase was
-started, and I am an advisor to the company. I have also, in just the past year,
-advised 8 different technology startups on data and analytics and in each case
-have recommended Metabase for them. They all continue to use it.</em></p>
-<h3>Installation/Deployment</h3>
-<p>If you are just in evaluation mode, I would recommend downloading Metabase’s
-<a href="http://www.metabase.com/start/mac.html">mac app</a>. Follow their <a href="http://www.metabase.com/docs/v0.20.3/setting-up-metabase.html">setup
-guide</a>, and
-you’re ready to create some metrics. However, deploying Metabase either on
-<a href="http://www.metabase.com/docs/v0.20.3/operations-guide/running-metabase-on-heroku.html">Heroku</a>
-or <a href="http://www.metabase.com/docs/v0.20.3/operations-guide/running-metabase-on-elastic-beanstalk.html">AWS Elastic
-Beanstalk</a>
-(best) is highly recommended, as you’ll get a persistent application that’s
-hosted in the cloud and your whole team can use it.</p>
-<p>For a full guide on the deployment process, <a href="https://www.youtube.com/watch?v=wmJ02K8LIFk">check out my video
-tutoria</a>l. Metabase’s
-<a href="http://www.metabase.com/docs/v0.20.3/operations-guide/start.html#installing-and-running-metabase">documentation</a>
-is pretty comprehensive, as well. If you’re a non-technical person, you may have
-to shoulder-tap an engineer, especially if your application database is in a VPC
-on AWS. On that note, it’s also a good idea to create a read replica of your
-application database and plug that into Metabase. That way you can ensure any
-heavy duty or hanging queries won’t affect your users.</p>
-<p>Once you get Metabase deployed, sign up and add your database credentials. Next,
-invite your team members so they can get in on the fun.</p>
-<h3>Creating your metrics</h3>
-<p>Believe it or not, the rest is pretty easy. The first thing you’ll want to do is
-build your metrics. In Metabase parlance, these are “Questions”. If you’re the
-pie business, and you have a reasonably organized schema, you should be able to
-get your key metrics with just a few clicks. No SQL is required, but of course
-if you like SQL that option is available.</p>
-<p>So build your top metrics, and see if any other interesting ones pop into your
-mind. Although you can find <a href="https://www.quora.com/How-and-why-are-pie-charts-considered-evil-by-data-visualization-experts">hundreds of smart people who will tell you to never
-make a pie
-chart</a>,
-I won’t hate on you for making a pie chart based on pie popularity. If metabase
-is the meta database, it’s only right to make your pie chart meta.</p>
-<h3>Finishing touches</h3>
-<p>Next you’ll want to setup a daily stats email. I don’t know what it is about
-them, but everyone loves daily stats emails. Metabase calls these “Pulses”, and
-even lets you use Slack if you’re too cool for email. Simply add the Questions
-you want to send out, pick a time and cadence (it doesn’t have to be daily but
-that tends to be the most helpful, IMO) and a list of recipients or slack
-channel and you’re done!</p>
-<p>Lastly, everyone loves to see pretty dashboards up on the monitors in the
-office. Don’t keep them in suspense. Making a dashboard is also quite
-straightforward. Pick some Questions and organize them as best as your design
-sensibilities allow you. Load it up on an external monitor you’ve got up in the
-office, full-screen it, and you’re done!</p>
-<h3>Recap</h3>
-<p>You just set up a pretty solid analytics infrastructure for your startup in
-about an hour. Now your whole team can explore your application database,
-receive nightly emails, and view a company-wide dashboard. Even better, This
-setup should last you for quite some time — at least 6 months unless you start
-experiencing crazy growth (in which case, no complaining).</p>
-<p><em>Ready to try it out? Skeptical of the 1 hour guarantee? Check out my YouTube
-tutorials, </em><a href="https://www.youtube.com/watch?v=wmJ02K8LIFk">part 1</a><em> and </em><a href="https://www.youtube.com/watch?v=Abza9SKoWPs">part
-2</a><em>, where I walk you through
-everything you need to know.</em></p><p><a href="http://timabe.me/posts/2017/01/one_hr_analytics/#disqus_thread">Comments</a>.</p>                </article>
+<p>tags: <a href="http://timabe.me/tag/cooking/">cooking</a><a href="http://timabe.me/tag/life/">life</a></p></footer><!-- /.post-info --><p>I tend to write a lot about reading and data. However, I spend <em>a lot</em> of time both cooking and watching cooking videos on YouTube. To the point where I've nearly developed a bedtime dependency on a few YouTube videos in bed to help me fall asleep. It's not good, but not the worst thing either - so I carry on.</p>
+<p>My love of cooking began in grad school. I was going to school in Barcelona, which is one of the most fun cities to party and eat in. However, I was super stressed at the time and doing none of that. My Master's program was way more rigorous than I could have ever imagined, and I was panicking and for the first time in my life over the idea of dropping out or failing out of school. Needless to say, going out to the clubs until 7 am, was not really an option. But everyone needs some time each day to unwind and let the mind release. For me, I was able to find those peaceful moments while shopping for groceries and coming home and cooking for an hour or so. Spain has amazing grocery stores, comparable/better than some of the best markets we have here in Berkeley but at a lower price point. And speaking of low price points, I could get a great bottle of Rioja for around 5 euros, considerably less than a bottle of California Cabernet or Zinfandel that I'd probably pay $15 for back home.</p>
+<p><img alt="blogImage" src="https://cloud.githubusercontent.com/assets/1427277/23641983/a611536c-02ac-11e7-894c-45f1d03f1064.jpg" />
+<span class="caption">Seared Chicken Breast with Carrot Puree. Puree goodness, cooked with Joule</span></p>
+<p>Ever since then I've been honing my cooking technique, and that involves watching a lot of cooking shows, reading a lot of cooking blogs and magazines, and filling my kitchen up with gear and gadgets to make my cooking better and more enjoyable.</p>
+<p>Some time around a year ago, I started following a Seattle based startup called <a href="https://www.chefsteps.com/">Chefsteps</a> on YouTube. Their videos were elegant, beautiful, <a href="https://www.youtube.com/watch?v=gqXjCFNX6HQ">and often way over my head</a>. It was basically food porn. Half of the videos either called for some crazy ingredient, like ascorbic acid, or required a centerfuge and a vacuum sealer. Most of their videos showed off this sleek sous vide product they were developing called Joule. For those who don't know what sous vide is, it's a cooking technique where you put your food in a bag or vacuum sealed pouch, drop it in a water bath where the temperature is precisely controlled, and let your food gradually reach its desired temperature. The main advantage of cooking this way is that your food is guaranteed to come out at the perfect temperature. For years sous vide has been a mainstay in restaurant kitchens, and over the past few years we've begun to see sous vide tools hit the home cook market.</p>
+<p><img alt="blogImage" src="https://cloud.githubusercontent.com/assets/1427277/23641987/a9a3e184-02ac-11e7-9d36-8ba5cda32b45.png" />
+<span class="caption">Eggs Benedict I made for my girlfriend after a week of dog sitting. Poached the eggs and made the hollandaise at the same sous vide temp.</span></p>
+<p>After watching a few videos of perfectly cooked salmon, steak, and fried chicken, I decided I wanted a Joule. To seal the deal, I <a href="https://pi.co/chris-young/">read a really fascinating interview of their cofounder by Om Malik</a>. Then, I think it was around July, they went on sale for $150 with an unknown shipping date. I tossed the Chefsteps team $150 and waited patiently until around early November when it finally came. I normally don't like to purchase what I consider v1 products, but I had become such a fan of the company that I was willing to take a chance.</p>
+<p>Any design obsessed, tech driven product company in the post-Steve-Jobs-era knows that packaging, messaging, and unboxing are sacred. I remember being really excited to open Joule, and they truly delivered on making that experience very iPhone-esque. And I'm talking iPhone 2, when it still meant something. After testing out that it worked, I hopped on my bike and picked up a piece of salmon at Berkeley Bowl, brought it back, and cooked it to a perfect 122 degrees. I gave it a quick sear on very high heat to crisp up the skin, which unfortunately got slightly stuck to my pan, and dug in. While it wasn't the most beautiful piece of fish, it tasted great and like the salmon, I was hooked!</p>
+<p><img alt="blogImage" src="https://cloud.githubusercontent.com/assets/1427277/23887338/72c28af2-083e-11e7-8e3b-5ceec1065980.JPG" />
+<span class="caption">Valentine's day New York Steak, cooked in a hotel room in Mendocino. Pro Tip: Take your sous vide device on your next vacation. Cook anywhere.</span></p>
+<p>Since then, I've probably done around 20 or so cooks with Joule. From weeknight chicken breasts (which are absolutely nothing like the boneless, skinless ones you formed an image of already in your head), to a 2-bone Christmas prime rib roast, I've gotten a lot of value from Joule. In fact, when I look at all the fancy things I've filled my kitchen with, Joule easily has the most utility of all the products I've spent over $100 bucks on, with the sole exception of my chef's knife. I use it probably 100x more often than my food processor, and probably around 5x more often than my Le Creuset dutch oven. Still, my kitchen tongs reign supreme as the most useful thing I've ever purchased for cooking.</p>
+<p>It sounds hyperbolic, but I can really say this product has significantly improved my life. How? I'd say it comes down to these three points</p>
+<h3>1. Cooking is (even more) stress free</h3>
+<p>Cooking is a way for me to relax. However, it can be stressful at times. Like when you've got a piece of meat on the stove, some vegetables in the oven, and are chopping up something for a salad. It's all delicious, but to bring it all together at the last minute so nothing gets cold and soggy can take some Beautiful Mind style calculations. The constraint on the timing side is usually bound to the protein, since that's the thing you really don't want to overcook. Cooking sous vide eliminates that completely, since you can generally leave your proteins in the water bath for at least an hour after they've come up to temperature. So now, if I'm roasting some carrots and making a salad along with a pork chop or chicken thighs, I don't let the meat play conductor in my culinary symphony. Once I've got everything else cooked, table set, and all is in its place, I take my perfectly cooked proteins out and give them a quick sear and I'm all ready. Even if I'm keeping my dinners real simple, it's still nice to not have to huddle over a pan on the stove. I just get home from work, heat the water, drop in the proteins, and then go pour a glass of wine, meditate, turn on Netflix, or do whatever I need to do to get the relaxation vibes flowing.</p>
+<h3>2. I actually bring my lunch to work</h3>
+<p>Ever since I left a cushy job at a major tech company that served me free gourmet food every single day for a slightly less cushy tech job where I had to go get my lunch, I've realized that buying your lunch in San Francisco sucks. It's really expensive and not that good. One of the cool things for me about cooking sous vide is that instead of cooking one chicken breast for dinner, I'll just cook two. I'll pop the other one in the fridge over night, and in the morning give it a quick sear, toss it together with some salad and other leftovers, and boom I have a beautiful lunch. Good value, healthy ingredients, and my coworkers are always impressed.</p>
+<h3>3. The "less meat" paradox</h3>
+<p>You can cook vegetables sous vide, but for the most part it's meant to cook meat. Other than eggs, I've only cooked chicken, fish, pork and beef with Joule. However, even though I use it several times a week I've probably decreased my meat consumption over that time. What is this, <a href="https://en.wikipedia.org/wiki/Simpson's_paradox">Simpson's paradox</a>? Well, sort of. It goes back to point #1. With sous vide, cooking meat tends to take at least an hour, almost all of which is spent not worrying about the cooking process. Some days I like to just chill and wait it out, but more often than not I spend that hour making other stuff. Whether it be roasted brussels sprouts, steamed broccoli, salads with no dressing (I know, I'm weird, but that's for another post), or taking some day old rice and turning it into delicious fried rice, that hour allows me to fill my dinner plate with lots of delicious non-meat options. I still may not be <a href="http://michaelpollan.com/reviews/how-to-eat/">dogmatically following Michael Pollan's food rules</a>, but I'm getting closer!</p>
+<h3>Bonus: Fish-intimidation is a thing of the past</h3>
+<p>Cooking fish used to mean salmon. I'd cook other seafood like shrimp and scallops, and of course indulge in already cooked, chilled, and cracked dungeness crab. But I knew I'd always fuck up the more tender fishes, like halibut, sablefish, artic char, and sea bass. I'd order them at fancy restaurants and pay absorbent prices since I never felt like they were approachable at home. Now, I fear no fish!</p>
+<p><img alt="blogImage" src="https://cloud.githubusercontent.com/assets/1427277/23887371/be8638f8-083e-11e7-94be-cff29af59121.jpg" />
+<span class="caption">"Nobu" style Black Cod. De Niro would be proud.</span></p>
+<p>I have no affiliation with Chefsteps (if they were an SF company I might apply for a job) and am not getting paid to write this post (I doubt I have more than 3 or 4 readers anyway). I won't leave any links to go purchase Joule either, but I highly recommend a sous vide tool if you're a fan of cooking. There are others out there, most notably the Anova. Joule, however, looks the prettiest.</p>
+<p>Some more gratuitous cooking photos for your enjoyment!</p>
+<p><img alt="blogImage" src="https://cloud.githubusercontent.com/assets/1427277/23643835/f9638bd2-02b8-11e7-9308-819ec70e52c7.jpg" /></p>
+<p>That's me! Making some fried chicken. How is that sous vide? Well first you cook all the chicken parts sous vide, and give them a quick fry after flour-ing them up. That way you only fry them for a few minutes, instead of 20+ minutes the traditional way.</p>
+<p><img alt="blogImage" src="https://cloud.githubusercontent.com/assets/1427277/23643834/f962afe6-02b8-11e7-84ec-9a23ba8dd0fb.jpg" /></p>
+<p>When it came time to plate the fried chicken, photography was the last thing on my mind. So this is the closest to "final product" I got. This was probably the most delicious thing I've ever cooked. Because the chicken was pre cooked sous vide, I didn't need to fry it the standard 20 minutes. That left the insides incredibly juicy.</p><p><a href="http://timabe.me/posts/2017/03/joule_review/#disqus_thread">Comments</a>.</p>                </article>
             </aside><!-- /#featured -->
                 <section id="content" class="body">
                     <hr />
                     <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h3><a href="http://timabe.me/posts/2017/01/one_hr_analytics/" rel="bookmark"
+                           title="Permalink to Bootstrap your Analytics in 1 hour or Less">Bootstrap your Analytics in 1 hour or Less</a></h3>
+                </header>
+
+                <div class="entry-content">
+                <p>How startups should do their analytics</p>
+                <a class="readmore" href="http://timabe.me/posts/2017/01/one_hr_analytics/">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>

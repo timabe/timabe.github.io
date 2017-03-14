@@ -33,6 +33,18 @@ body {
     padding-top:80px;
 }
 
+img[alt=blogImage] {
+    width: 500px;
+    display: block;
+    margin: 0 auto;
+}
+
+.caption {
+    display: block;
+    text-align: center;
+    font-style: 16px;
+}
+
 footer.post-info {
 	color: #6F6C6C;
 	line-height: 40px;
