@@ -1,5 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>tim abraham</title><link href="http://timabe.me/" rel="alternate"></link><link href="http://timabe.me/feeds/tim-abraham.atom.xml" rel="self"></link><id>http://timabe.me/</id><updated>2017-03-06T00:00:00-08:00</updated><entry><title>Product Review: Chefsteps' Joule</title><link href="http://timabe.me/posts/2017/03/joule_review/" rel="alternate"></link><updated>2017-03-06T00:00:00-08:00</updated><author><name>Tim Abraham</name></author><id>tag:timabe.me,2017-03-06:posts/2017/03/joule_review/</id><summary type="html">&lt;p&gt;I tend to write a lot about reading and data. However, I spend &lt;em&gt;a lot&lt;/em&gt; of time both cooking and watching cooking videos on YouTube. To the point where I've nearly developed a bedtime dependency on a few YouTube videos in bed to help me fall asleep. It's not good, but not the worst thing either - so I carry on.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>tim abraham</title><link href="http://timabe.me/" rel="alternate"></link><link href="http://timabe.me/feeds/tim-abraham.atom.xml" rel="self"></link><id>http://timabe.me/</id><updated>2017-04-17T00:00:00-07:00</updated><entry><title>The Gambler's Ruin: A simple explanation and derivation</title><link href="http://timabe.me/posts/2017/04/gamblers_ruin/" rel="alternate"></link><updated>2017-04-17T00:00:00-07:00</updated><author><name>Tim Abraham</name></author><id>tag:timabe.me,2017-04-17:posts/2017/04/gamblers_ruin/</id><summary type="html">&lt;p&gt;I've recently had the itch to break out some textbooks and do a little math. Don't ask me where that desire comes from, but I find working on math problems fun. A few years ago I bought a probability textbook, which I learned about through an Amazon review by my intellectual hero, Nassim Taleb (&lt;a href="https://www.amazon.com/review/RBJX110Q38V9V"&gt;here's the review&lt;/a&gt;). Since then it has mainly been sitting on my book shelf, but occasionally I leaf through it and try to refresh my memory on some concept or learn a new one.&lt;/p&gt;
+&lt;p&gt;In the book, I came across a very famous problem in probability called &lt;a href="https://en.wikipedia.org/wiki/Gambler%27s_ruin"&gt;The Gambler's Ruin&lt;/a&gt;. In the problem, we have the following scenario:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Two players, Player A and Player B, play a series of consecutive gambling games until one of the players loses all their money. Player A starts with a dollars and Player B starts with b dollars and the loser pays one dollar to the winner in each game. Player A's chance of winning a game is &lt;span class="math"&gt;\(p\)&lt;/span&gt; and Player B's chance is &lt;span class="math"&gt;\(q\)&lt;/span&gt; (where &lt;span class="math"&gt;\(p+q=1\)&lt;/span&gt;). What is the probability, at any level of wealth Player A is at, that he will be ruined?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;It's not hard to find a solution for this problem online. I even found an okay explanation of it by the &lt;a href="https://www.youtube.com/watch?v=Rr2iSKlengg&amp;amp;t"&gt;author of my textbook on YouTube&lt;/a&gt;. However, I was a bit rusty on some of my math and found all the answers out there to be a bit hand wavy in their derivations. They go through the most confusing steps with no explanation, which was frustrating for me. I like simple, straightforward explanations. And since I couldn't find a single one on the Internet, I decided to contribute it myself. So let's walk through the problem, very slowly, step by step. If you follow me with a pencil and paper I guarantee you'll be able to understand the math. My goal is to be as comprehensive and thorough as possible.&lt;/p&gt;
+&lt;h3&gt;The Setup&lt;/h3&gt;
+&lt;p&gt;How do you even start with this problem? The question above asks "What is the probability, at any level of wealth Player A is at, that he will be ruined?". So let's call this &lt;span class="math"&gt;\(P_n\)&lt;/span&gt;.  &lt;span class="math"&gt;\(P_n\)&lt;/span&gt; is the probability that when Player A has n dollars, he will ultimately be ruined. How does Player A get to a position where he has n dollars? Well there are two ways he can get there: He can either lose a game when he has n + 1, or he can win a game when he has n - 1. We know the probability of him winning and losing a game is &lt;span class="math"&gt;\(p\)&lt;/span&gt; and &lt;span class="math"&gt;\(q\)&lt;/span&gt;, respectively, and we know these are mutually exclusive events. Therefore, we can write out the equation for &lt;span class="math"&gt;\(P_n\)&lt;/span&gt; as &lt;/p&gt;
+&lt;div class="math"&gt;\begin{equation} P_n=pP_{n+1}+qP_{n-1} \end{equation}&lt;/div&gt;
+&lt;p&gt;We get there by applying the theorem of total probability if you want to start at first principles, but I think the equation makes sense without any more set up. So we have our equation to solve!&lt;/p&gt;
+&lt;h3&gt;Initial conditions&lt;/h3&gt;
+&lt;p&gt;Two initial conditions can help us solve the problem. &lt;/p&gt;
+&lt;div class="math"&gt;$$P_0=1$$&lt;/div&gt;
+&lt;p&gt;
+This says that when Player A has $0, he is ruined. When Player A runs out of money, he can no longer play the game, so he's stuck in this state. His probability of ruin is therefore 1, since he has no chance of getting back in the action. &lt;/p&gt;
+&lt;div class="math"&gt;$$P_{a+b}=0$$&lt;/div&gt;
+&lt;p&gt; This says the opposite. If Player A has won both his $a and Player B's $b, he has won all the dollars. Player B can no longer play, so the game is over and Player A has no chance of being ruined.&lt;/p&gt;
+&lt;h3&gt;Solving a difference equation.&lt;/h3&gt;
+&lt;p&gt;Equation &lt;span class="math"&gt;\((1)\)&lt;/span&gt; is known as a difference equation. I haven't solved too many of them, or at least been aware that I was, and maybe you're in the same boat. We can rewrite equation &lt;span class="math"&gt;\((1)\)&lt;/span&gt; as &lt;/p&gt;
+&lt;div class="math"&gt;\begin{equation} p(P_{n+1}-P_n) = q(P_n-P_{n-1})\end{equation}&lt;/div&gt;
+&lt;p&gt;
+or &lt;/p&gt;
+&lt;div class="math"&gt;$$P_{n+1}-P_n=\frac{q}{p}(P_n-P_{n-1})$$&lt;/div&gt;
+&lt;p&gt;.&lt;/p&gt;
+&lt;p&gt;Hopefully you're still with me. All we did to get &lt;span class="math"&gt;\((2)\)&lt;/span&gt; was use the fact that &lt;span class="math"&gt;\(p+q=1\)&lt;/span&gt; and multiply the left hand side &lt;span class="math"&gt;\(P_n\)&lt;/span&gt; by &lt;span class="math"&gt;\((p+q)\)&lt;/span&gt;. The next part of the solution I got stuck on a bit. In most of the derivations I saw, we go from the above equation, to &lt;/p&gt;
+&lt;div class="math"&gt;\begin{equation} P_{n+1}-P_n=\frac{q}{p}(P_n-P_{n-1})=(\frac{q}{p})^n(P_1-1) \end{equation}&lt;/div&gt;
+&lt;p&gt;.&lt;/p&gt;
+&lt;p&gt;Huh? How'd we get there? Let me show you. Let's try plugging in some numbers. First let's say &lt;span class="math"&gt;\(n=1\)&lt;/span&gt;. Plug that into &lt;span class="math"&gt;\((3)\)&lt;/span&gt;&lt;/p&gt;
+&lt;div class="math"&gt;$$P_2-P_1=\frac{q}{p}(P_1-P_0)$$&lt;/div&gt;
+&lt;p&gt;
+But we know from our initial conditions that &lt;span class="math"&gt;\(P_0=1\)&lt;/span&gt;, so:
+&lt;/p&gt;
+&lt;div class="math"&gt;$$P_2-P_1=\frac{q}{p}(P_1-1)$$&lt;/div&gt;
+&lt;p&gt;Great, now let's try for &lt;span class="math"&gt;\(n=2\)&lt;/span&gt;. Plugged into (3) gives
+&lt;/p&gt;
+&lt;div class="math"&gt;$$P_3-P_2=\frac{q}{p}(P_2-P1)$$&lt;/div&gt;
+&lt;p&gt;You can see a pattern emerging here. But you can also see that the &lt;span class="math"&gt;\((P_2-P_1)\)&lt;/span&gt; in the above equation was already solved for in the &lt;span class="math"&gt;\(n=1\)&lt;/span&gt; scenario. So we can simply plug that in.
+&lt;/p&gt;
+&lt;div class="math"&gt;$$P_3-P_2=\frac{q}{p}\frac{q}{p}(P_1-1)=(\frac{q}{p})^2(P_1-1)$$&lt;/div&gt;
+&lt;p&gt;Now consider the general case with &lt;span class="math"&gt;\(n\)&lt;/span&gt;. Feel free to try with &lt;span class="math"&gt;\(n=3\)&lt;/span&gt; if you haven't gotten the pattern. If you keep iterating, you'll continue to wind up with something that equals &lt;span class="math"&gt;\((\frac{q}{p})^n(P_1-1)\)&lt;/span&gt;.&lt;/p&gt;
+&lt;h3&gt;Fun with Geometric Sequences&lt;/h3&gt;
+&lt;p&gt;Let's take another route now. We've simplified &lt;span class="math"&gt;\(P_{n+1}-P_n\)&lt;/span&gt;, but what about when we're not just looking at a difference of 1 game? Let's exploit our other initial condition of &lt;span class="math"&gt;\(P_{a+b}=1\)&lt;/span&gt; and solve for &lt;span class="math"&gt;\(P_{a+b}-P_n\)&lt;/span&gt;. Again, let's plug in some numbers. Let's say &lt;span class="math"&gt;\(n=1\)&lt;/span&gt; and &lt;span class="math"&gt;\(a+b=3\)&lt;/span&gt;. Now we have &lt;span class="math"&gt;\(P_3-P_1\)&lt;/span&gt;. From the work we did above we know &lt;span class="math"&gt;\(P_3-P_2\)&lt;/span&gt; and &lt;span class="math"&gt;\(P_2-P_1\)&lt;/span&gt;, and adding those together gives us &lt;span class="math"&gt;\(P_3-P_1\)&lt;/span&gt;. We could also write that as&lt;/p&gt;
+&lt;div class="math"&gt;$$P_3-P_1=$\sum\limits_{k=1}^{2}P_{k+1}-P_k$$&lt;/div&gt;
+&lt;p&gt;Or more generally
+&lt;/p&gt;
+&lt;div class="math"&gt;$$P_{a+b}-P_{n}=$\sum\limits_{k=n}^{a+b-1}P_{k+1}-P_k$$&lt;/div&gt;
+&lt;p&gt;.&lt;/p&gt;
+&lt;p&gt;We can plug in our solution for &lt;span class="math"&gt;\(P_{n+1}-P_n\)&lt;/span&gt; from &lt;span class="math"&gt;\((3)\)&lt;/span&gt; into the &lt;span class="math"&gt;\(P_{k+1}-P_k\)&lt;/span&gt; and get &lt;/p&gt;
+&lt;div class="math"&gt;\begin{equation} =\sum\limits_{k=n}^{a+b-1}(\frac{q}{p})^k(P_1-1) \end{equation}&lt;/div&gt;
+&lt;p&gt;Now we'd like to get rid of that summation term. This is a geometric series, so there's a very cool trick we can perform here to get find what that summation is equal to. I had completely forgotten about learning this trick in grad school. Like I said, my math is very rusty and I'm sure yours is too. So here's how you solve for it. Let's call the sequence &lt;span class="math"&gt;\(\sum\limits_{k=n}^{a+b-1}(\frac{q}{p})^k=S_k\)&lt;/span&gt;. Okay, let's start expanding it out:&lt;/p&gt;
+&lt;div class="math"&gt;\begin{equation} S_k=\frac{q}{p}^n+\frac{q}{p}^{n+1}+...+\frac{q}{p}^{a+b-1} \end{equation}&lt;/div&gt;
+&lt;p&gt;Now the trick, where we multiply each side by &lt;span class="math"&gt;\(\frac{q}{p}\)&lt;/span&gt;.&lt;/p&gt;
+&lt;div class="math"&gt;\begin{equation} \frac{q}{p}S_k=\frac{q}{p}^{n+1}+\frac{q}{p}^{n+2}+...+\frac{q}{p}^{a+b} \end{equation}&lt;/div&gt;
+&lt;p&gt;And let's subtract &lt;span class="math"&gt;\((6)\)&lt;/span&gt; from &lt;span class="math"&gt;\((5)\)&lt;/span&gt;. Almost all the terms on the right hand side cancel out.&lt;/p&gt;
+&lt;div class="math"&gt;$$ S_k - \frac{q}{p}S_k =\frac{q}{p}^n - \frac{q}{p}^{a+b} $$&lt;/div&gt;
+&lt;div class="math"&gt;$$ (1-\frac{q}{p})S_k =\frac{q}{p}^n - \frac{q}{p}^{a+b} $$&lt;/div&gt;
+&lt;div class="math"&gt;$$ S_k =\frac{\frac{q}{p}^n - \frac{q}{p}^{a+b}}{1-\frac{q}{p}} $$&lt;/div&gt;
+&lt;p&gt;Very cool, right? We can plug that back in for the summation in &lt;span class="math"&gt;\((4)\)&lt;/span&gt; and get&lt;/p&gt;
+&lt;div class="math"&gt;\begin{equation} P_{a+b}-P_{n}=(P_1-1)\frac{\frac{q}{p}^n - \frac{q}{p}^{a+b}}{1-\frac{q}{p}} \end{equation}&lt;/div&gt;
+&lt;h3&gt;Home stretch!&lt;/h3&gt;
+&lt;p&gt;We're basically home free now. Recall that &lt;span class="math"&gt;\(P_{a+b}=0\)&lt;/span&gt; and then multiply both sides by &lt;span class="math"&gt;\(-1\)&lt;/span&gt; to get&lt;/p&gt;
+&lt;div class="math"&gt;\begin{equation} P_n=(1-P_1)\frac{\frac{q}{p}^n - \frac{q}{p}^{a+b}}{1-\frac{q}{p}} \end{equation}&lt;/div&gt;
+&lt;p&gt;We've almost written this in terms of only &lt;span class="math"&gt;\(n,a, and b\)&lt;/span&gt;, but we still don't know what &lt;span class="math"&gt;\((1-P_1)\)&lt;/span&gt; is. We can take care of that by using the other initial condition again &lt;span class="math"&gt;\(P_0=1\)&lt;/span&gt;.&lt;/p&gt;
+&lt;div class="math"&gt;\begin{equation} P_0=(1-P_1)\frac{\frac{q}{p}^0 - \frac{q}{p}^{a+b}}{1-\frac{q}{p}}=1 \end{equation}&lt;/div&gt;
+&lt;p&gt;We can now divide $(8) by 1.&lt;/p&gt;
+&lt;div class="math"&gt;$$P_n=\frac{(1-P_1)}{(1-P_1)}\frac{(\frac{q}{p}^n - \frac{q}{p}^{a+b})(1-\frac{q}{p})}{(\frac{q}{p}^0 - \frac{q}{p}^{a+b})(1-\frac{q}{p})}$$&lt;/div&gt;
+&lt;p&gt;Which you can see a lot can be cancelled out from. Also, &lt;span class="math"&gt;\(\frac{q}{p}^0=1\)&lt;/span&gt;. That gives us
+&lt;/p&gt;
+&lt;div class="math"&gt;$$P_n=\frac{(\frac{q}{p})^n - (\frac{q}{p})^{a+b}}{1-(\frac{q}{p})^{a+b}}$$&lt;/div&gt;
+&lt;p&gt;Which is our answer! That's quite a bit of math, but laid out step by step with explanations it's very straightforward. Now that we've got our solution, let's build some intuition around that last equation and simulate some gambling scenarios.&lt;/p&gt;
+&lt;h2&gt;Intuition and moral of The Gambler's Ruin&lt;/h2&gt;
+&lt;p&gt;The earliest mention of this problem was in a letter from Blaise Pascal to Pierre Fermat in 1656. That was obviously pre-Vegas. Today, the problem is often used as a cautionary tale for anyone naive enough to think they can beat the house on their next trip to Vegas. As we'll see with some simulations, as long as the odds are not in your favor you basically will always go broke. Even if you're playing a game where you have a 49.9% chance of winning, your probability of being ruined is always going to look pretty bad. In fact, if you're playing against the casino, and not Player B (who has less money than the casino), your probability of ruin is basically 1 unless you're incredibly rich.&lt;/p&gt;
+&lt;p&gt;So moral of the story: If you're playing a gambling game like the one described in this problem, quit while (and if) you're ahead. Roulette is probably the most relevant game to this problem. Roulette has nearly symetric payout odds, with the odds just slightly tipped towards the house. If you go to Vegas and play one dollar roulette, you will eventually go broke. The same is true for any game in the casino, except for poker.&lt;/p&gt;
+&lt;p&gt;So why don't casinos make unlimited money? Reducing real life problems to simple probability math problems is a concept coined by Nassim Taleb as the [Ludic Fallacy](https://en.wikipedia.org/wiki/Ludic_fallacy. The Ludic (from ludus, which is Latin for games) Fallacy warns against using the use of games to predict real life situations. One of my favorite parts of The Black Swan was the chapter on the Ludic Fallacy. In that chapter, Taleb writes about how probability like the Gambler's Ruin should never be applied to complex domains and should be relegated only to things like casinos. He mentions that he lectured a team of executives from a casino on this, telling them that their business was really the only place where one could apply vanilla probability and statistics. It turned out, however, that even the casino could not just apply the learnings from the Gambler's Ruin and go home happy. The casino he was lecturing had suffered major losses that year from completely unpredictable outcomes - most notably that a tiger in one of their performances mauled a performer on stage causing a lot of unforseen damage. So even a domain that seems ludic is not!&lt;/p&gt;
+&lt;h2&gt;Simulating&lt;/h2&gt;
+&lt;p&gt;TBD&lt;/p&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' &amp;&amp; location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</summary><category term="math"></category><category term="probability"></category><category term="learning"></category></entry><entry><title>Product Review: Chefsteps' Joule</title><link href="http://timabe.me/posts/2017/04/joule_review/" rel="alternate"></link><updated>2017-04-01T00:00:00-07:00</updated><author><name>Tim Abraham</name></author><id>tag:timabe.me,2017-04-01:posts/2017/04/joule_review/</id><summary type="html">&lt;p&gt;I tend to write a lot about reading and data. However, I spend &lt;em&gt;a lot&lt;/em&gt; of time both cooking and watching cooking videos on YouTube. To the point where I've nearly developed a bedtime dependency on a few YouTube videos in bed to help me fall asleep. It's not good, but not the worst thing either - so I carry on.&lt;/p&gt;
 &lt;p&gt;My love of cooking began in grad school. I was going to school in Barcelona, which is one of the most fun cities to party and eat in. However, I was super stressed at the time and doing none of that. My Master's program was way more rigorous than I could have ever imagined, and I was panicking and for the first time in my life over the idea of dropping out or failing out of school. Needless to say, going out to the clubs until 7 am, was not really an option. But everyone needs some time each day to unwind and let the mind release. For me, I was able to find those peaceful moments while shopping for groceries and coming home and cooking for an hour or so. Spain has amazing grocery stores, comparable/better than some of the best markets we have here in Berkeley but at a lower price point. And speaking of low price points, I could get a great bottle of Rioja for around 5 euros, considerably less than a bottle of California Cabernet or Zinfandel that I'd probably pay $15 for back home.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="blogImage" src="https://cloud.githubusercontent.com/assets/1427277/23641983/a611536c-02ac-11e7-894c-45f1d03f1064.jpg" /&gt;
 &lt;span class="caption"&gt;Seared Chicken Breast with Carrot Puree. Puree goodness, cooked with Joule&lt;/span&gt;&lt;/p&gt;

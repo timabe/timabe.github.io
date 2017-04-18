@@ -27,45 +27,160 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="http://timabe.me/posts/2017/03/joule_review/">Product Review: Chefsteps' Joule</a></h1>
+                    <h1 class="entry-title"><a href="http://timabe.me/posts/2017/04/gamblers_ruin/">The Gambler's Ruin: A simple explanation and derivation</a></h1>
 <footer class="post-info">
-        <abbr class="published" title="2017-03-06T00:00:00-08:00">
-                March 2017
+        <abbr class="published" title="2017-04-17T00:00:00-07:00">
+                April 2017
         </abbr>
-<p>tags: <a href="http://timabe.me/tag/cooking/">cooking</a><a href="http://timabe.me/tag/life/">life</a></p></footer><!-- /.post-info --><p>I tend to write a lot about reading and data. However, I spend <em>a lot</em> of time both cooking and watching cooking videos on YouTube. To the point where I've nearly developed a bedtime dependency on a few YouTube videos in bed to help me fall asleep. It's not good, but not the worst thing either - so I carry on.</p>
-<p>My love of cooking began in grad school. I was going to school in Barcelona, which is one of the most fun cities to party and eat in. However, I was super stressed at the time and doing none of that. My Master's program was way more rigorous than I could have ever imagined, and I was panicking and for the first time in my life over the idea of dropping out or failing out of school. Needless to say, going out to the clubs until 7 am, was not really an option. But everyone needs some time each day to unwind and let the mind release. For me, I was able to find those peaceful moments while shopping for groceries and coming home and cooking for an hour or so. Spain has amazing grocery stores, comparable/better than some of the best markets we have here in Berkeley but at a lower price point. And speaking of low price points, I could get a great bottle of Rioja for around 5 euros, considerably less than a bottle of California Cabernet or Zinfandel that I'd probably pay $15 for back home.</p>
-<p><img alt="blogImage" src="https://cloud.githubusercontent.com/assets/1427277/23641983/a611536c-02ac-11e7-894c-45f1d03f1064.jpg" />
-<span class="caption">Seared Chicken Breast with Carrot Puree. Puree goodness, cooked with Joule</span></p>
-<p>Ever since then I've been honing my cooking technique, and that involves watching a lot of cooking shows, reading a lot of cooking blogs and magazines, and filling my kitchen up with gear and gadgets to make my cooking better and more enjoyable.</p>
-<p>Some time around a year ago, I started following a Seattle based startup called <a href="https://www.chefsteps.com/">Chefsteps</a> on YouTube. Their videos were elegant, beautiful, <a href="https://www.youtube.com/watch?v=gqXjCFNX6HQ">and often way over my head</a>. It was basically food porn. Half of the videos either called for some crazy ingredient, like ascorbic acid, or required a centerfuge and a vacuum sealer. Most of their videos showed off this sleek sous vide product they were developing called Joule. For those who don't know what sous vide is, it's a cooking technique where you put your food in a bag or vacuum sealed pouch, drop it in a water bath where the temperature is precisely controlled, and let your food gradually reach its desired temperature. The main advantage of cooking this way is that your food is guaranteed to come out at the perfect temperature. For years sous vide has been a mainstay in restaurant kitchens, and over the past few years we've begun to see sous vide tools hit the home cook market.</p>
-<p><img alt="blogImage" src="https://cloud.githubusercontent.com/assets/1427277/23641987/a9a3e184-02ac-11e7-9d36-8ba5cda32b45.png" />
-<span class="caption">Eggs Benedict I made for my girlfriend after a week of dog sitting. Poached the eggs and made the hollandaise at the same sous vide temp.</span></p>
-<p>After watching a few videos of perfectly cooked salmon, steak, and fried chicken, I decided I wanted a Joule. To seal the deal, I <a href="https://pi.co/chris-young/">read a really fascinating interview of their cofounder by Om Malik</a>. Then, I think it was around July, they went on sale for $150 with an unknown shipping date. I tossed the Chefsteps team $150 and waited patiently until around early November when it finally came. I normally don't like to purchase what I consider v1 products, but I had become such a fan of the company that I was willing to take a chance.</p>
-<p>Any design obsessed, tech driven product company in the post-Steve-Jobs-era knows that packaging, messaging, and unboxing are sacred. I remember being really excited to open Joule, and they truly delivered on making that experience very iPhone-esque. And I'm talking iPhone 2, when it still meant something. After testing out that it worked, I hopped on my bike and picked up a piece of salmon at Berkeley Bowl, brought it back, and cooked it to a perfect 122 degrees. I gave it a quick sear on very high heat to crisp up the skin, which unfortunately got slightly stuck to my pan, and dug in. While it wasn't the most beautiful piece of fish, it tasted great and like the salmon, I was hooked!</p>
-<p><img alt="blogImage" src="https://cloud.githubusercontent.com/assets/1427277/23887338/72c28af2-083e-11e7-8e3b-5ceec1065980.JPG" />
-<span class="caption">Valentine's day New York Steak, cooked in a hotel room in Mendocino. Pro Tip: Take your sous vide device on your next vacation. Cook anywhere.</span></p>
-<p>Since then, I've probably done around 20 or so cooks with Joule. From weeknight chicken breasts (which are absolutely nothing like the boneless, skinless ones you formed an image of already in your head), to a 2-bone Christmas prime rib roast, I've gotten a lot of value from Joule. In fact, when I look at all the fancy things I've filled my kitchen with, Joule easily has the most utility of all the products I've spent over $100 bucks on, with the sole exception of my chef's knife. I use it probably 100x more often than my food processor, and probably around 5x more often than my Le Creuset dutch oven. Still, my kitchen tongs reign supreme as the most useful thing I've ever purchased for cooking.</p>
-<p>It sounds hyperbolic, but I can really say this product has significantly improved my life. How? I'd say it comes down to these three points</p>
-<h3>1. Cooking is (even more) stress free</h3>
-<p>Cooking is a way for me to relax. However, it can be stressful at times. Like when you've got a piece of meat on the stove, some vegetables in the oven, and are chopping up something for a salad. It's all delicious, but to bring it all together at the last minute so nothing gets cold and soggy can take some Beautiful Mind style calculations. The constraint on the timing side is usually bound to the protein, since that's the thing you really don't want to overcook. Cooking sous vide eliminates that completely, since you can generally leave your proteins in the water bath for at least an hour after they've come up to temperature. So now, if I'm roasting some carrots and making a salad along with a pork chop or chicken thighs, I don't let the meat play conductor in my culinary symphony. Once I've got everything else cooked, table set, and all is in its place, I take my perfectly cooked proteins out and give them a quick sear and I'm all ready. Even if I'm keeping my dinners real simple, it's still nice to not have to huddle over a pan on the stove. I just get home from work, heat the water, drop in the proteins, and then go pour a glass of wine, meditate, turn on Netflix, or do whatever I need to do to get the relaxation vibes flowing.</p>
-<h3>2. I actually bring my lunch to work</h3>
-<p>Ever since I left a cushy job at a major tech company that served me free gourmet food every single day for a slightly less cushy tech job where I had to go get my lunch, I've realized that buying your lunch in San Francisco sucks. It's really expensive and not that good. One of the cool things for me about cooking sous vide is that instead of cooking one chicken breast for dinner, I'll just cook two. I'll pop the other one in the fridge over night, and in the morning give it a quick sear, toss it together with some salad and other leftovers, and boom I have a beautiful lunch. Good value, healthy ingredients, and my coworkers are always impressed.</p>
-<h3>3. The "less meat" paradox</h3>
-<p>You can cook vegetables sous vide, but for the most part it's meant to cook meat. Other than eggs, I've only cooked chicken, fish, pork and beef with Joule. However, even though I use it several times a week I've probably decreased my meat consumption over that time. What is this, <a href="https://en.wikipedia.org/wiki/Simpson's_paradox">Simpson's paradox</a>? Well, sort of. It goes back to point #1. With sous vide, cooking meat tends to take at least an hour, almost all of which is spent not worrying about the cooking process. Some days I like to just chill and wait it out, but more often than not I spend that hour making other stuff. Whether it be roasted brussels sprouts, steamed broccoli, salads with no dressing (I know, I'm weird, but that's for another post), or taking some day old rice and turning it into delicious fried rice, that hour allows me to fill my dinner plate with lots of delicious non-meat options. I still may not be <a href="http://michaelpollan.com/reviews/how-to-eat/">dogmatically following Michael Pollan's food rules</a>, but I'm getting closer!</p>
-<h3>Bonus: Fish-intimidation is a thing of the past</h3>
-<p>Cooking fish used to mean salmon. I'd cook other seafood like shrimp and scallops, and of course indulge in already cooked, chilled, and cracked dungeness crab. But I knew I'd always fuck up the more tender fishes, like halibut, sablefish, artic char, and sea bass. I'd order them at fancy restaurants and pay absorbent prices since I never felt like they were approachable at home. Now, I fear no fish!</p>
-<p><img alt="blogImage" src="https://cloud.githubusercontent.com/assets/1427277/23887371/be8638f8-083e-11e7-94be-cff29af59121.jpg" />
-<span class="caption">"Nobu" style Black Cod. De Niro would be proud.</span></p>
-<p>I have no affiliation with Chefsteps (if they were an SF company I might apply for a job) and am not getting paid to write this post (I doubt I have more than 3 or 4 readers anyway). I won't leave any links to go purchase Joule either, but I highly recommend a sous vide tool if you're a fan of cooking. There are others out there, most notably the Anova. Joule, however, looks the prettiest.</p>
-<p>Some more gratuitous cooking photos for your enjoyment!</p>
-<p><img alt="blogImage" src="https://cloud.githubusercontent.com/assets/1427277/23643835/f9638bd2-02b8-11e7-9308-819ec70e52c7.jpg" /></p>
-<p>That's me! Making some fried chicken. How is that sous vide? Well first you cook all the chicken parts sous vide, and give them a quick fry after flour-ing them up. That way you only fry them for a few minutes, instead of 20+ minutes the traditional way.</p>
-<p><img alt="blogImage" src="https://cloud.githubusercontent.com/assets/1427277/23643834/f962afe6-02b8-11e7-84ec-9a23ba8dd0fb.jpg" /></p>
-<p>When it came time to plate the fried chicken, photography was the last thing on my mind. So this is the closest to "final product" I got. This was probably the most delicious thing I've ever cooked. Because the chicken was pre cooked sous vide, I didn't need to fry it the standard 20 minutes. That left the insides incredibly juicy.</p><p><a href="http://timabe.me/posts/2017/03/joule_review/#disqus_thread">Comments</a>.</p>                </article>
+<p>tags: <a href="http://timabe.me/tag/math/">math</a><a href="http://timabe.me/tag/probability/">probability</a><a href="http://timabe.me/tag/learning/">learning</a></p></footer><!-- /.post-info --><p>I've recently had the itch to break out some textbooks and do a little math. Don't ask me where that desire comes from, but I find working on math problems fun. A few years ago I bought a probability textbook, which I learned about through an Amazon review by my intellectual hero, Nassim Taleb (<a href="https://www.amazon.com/review/RBJX110Q38V9V">here's the review</a>). Since then it has mainly been sitting on my book shelf, but occasionally I leaf through it and try to refresh my memory on some concept or learn a new one.</p>
+<p>In the book, I came across a very famous problem in probability called <a href="https://en.wikipedia.org/wiki/Gambler%27s_ruin">The Gambler's Ruin</a>. In the problem, we have the following scenario:</p>
+<blockquote>
+<p>Two players, Player A and Player B, play a series of consecutive gambling games until one of the players loses all their money. Player A starts with a dollars and Player B starts with b dollars and the loser pays one dollar to the winner in each game. Player A's chance of winning a game is <span class="math">\(p\)</span> and Player B's chance is <span class="math">\(q\)</span> (where <span class="math">\(p+q=1\)</span>). What is the probability, at any level of wealth Player A is at, that he will be ruined?</p>
+</blockquote>
+<p>It's not hard to find a solution for this problem online. I even found an okay explanation of it by the <a href="https://www.youtube.com/watch?v=Rr2iSKlengg&amp;t">author of my textbook on YouTube</a>. However, I was a bit rusty on some of my math and found all the answers out there to be a bit hand wavy in their derivations. They go through the most confusing steps with no explanation, which was frustrating for me. I like simple, straightforward explanations. And since I couldn't find a single one on the Internet, I decided to contribute it myself. So let's walk through the problem, very slowly, step by step. If you follow me with a pencil and paper I guarantee you'll be able to understand the math. My goal is to be as comprehensive and thorough as possible.</p>
+<h3>The Setup</h3>
+<p>How do you even start with this problem? The question above asks "What is the probability, at any level of wealth Player A is at, that he will be ruined?". So let's call this <span class="math">\(P_n\)</span>.  <span class="math">\(P_n\)</span> is the probability that when Player A has n dollars, he will ultimately be ruined. How does Player A get to a position where he has n dollars? Well there are two ways he can get there: He can either lose a game when he has n + 1, or he can win a game when he has n - 1. We know the probability of him winning and losing a game is <span class="math">\(p\)</span> and <span class="math">\(q\)</span>, respectively, and we know these are mutually exclusive events. Therefore, we can write out the equation for <span class="math">\(P_n\)</span> as </p>
+<div class="math">\begin{equation} P_n=pP_{n+1}+qP_{n-1} \end{equation}</div>
+<p>We get there by applying the theorem of total probability if you want to start at first principles, but I think the equation makes sense without any more set up. So we have our equation to solve!</p>
+<h3>Initial conditions</h3>
+<p>Two initial conditions can help us solve the problem. </p>
+<div class="math">$$P_0=1$$</div>
+<p>
+This says that when Player A has $0, he is ruined. When Player A runs out of money, he can no longer play the game, so he's stuck in this state. His probability of ruin is therefore 1, since he has no chance of getting back in the action. </p>
+<div class="math">$$P_{a+b}=0$$</div>
+<p> This says the opposite. If Player A has won both his $a and Player B's $b, he has won all the dollars. Player B can no longer play, so the game is over and Player A has no chance of being ruined.</p>
+<h3>Solving a difference equation.</h3>
+<p>Equation <span class="math">\((1)\)</span> is known as a difference equation. I haven't solved too many of them, or at least been aware that I was, and maybe you're in the same boat. We can rewrite equation <span class="math">\((1)\)</span> as </p>
+<div class="math">\begin{equation} p(P_{n+1}-P_n) = q(P_n-P_{n-1})\end{equation}</div>
+<p>
+or </p>
+<div class="math">$$P_{n+1}-P_n=\frac{q}{p}(P_n-P_{n-1})$$</div>
+<p>.</p>
+<p>Hopefully you're still with me. All we did to get <span class="math">\((2)\)</span> was use the fact that <span class="math">\(p+q=1\)</span> and multiply the left hand side <span class="math">\(P_n\)</span> by <span class="math">\((p+q)\)</span>. The next part of the solution I got stuck on a bit. In most of the derivations I saw, we go from the above equation, to </p>
+<div class="math">\begin{equation} P_{n+1}-P_n=\frac{q}{p}(P_n-P_{n-1})=(\frac{q}{p})^n(P_1-1) \end{equation}</div>
+<p>.</p>
+<p>Huh? How'd we get there? Let me show you. Let's try plugging in some numbers. First let's say <span class="math">\(n=1\)</span>. Plug that into <span class="math">\((3)\)</span></p>
+<div class="math">$$P_2-P_1=\frac{q}{p}(P_1-P_0)$$</div>
+<p>
+But we know from our initial conditions that <span class="math">\(P_0=1\)</span>, so:
+</p>
+<div class="math">$$P_2-P_1=\frac{q}{p}(P_1-1)$$</div>
+<p>Great, now let's try for <span class="math">\(n=2\)</span>. Plugged into (3) gives
+</p>
+<div class="math">$$P_3-P_2=\frac{q}{p}(P_2-P1)$$</div>
+<p>You can see a pattern emerging here. But you can also see that the <span class="math">\((P_2-P_1)\)</span> in the above equation was already solved for in the <span class="math">\(n=1\)</span> scenario. So we can simply plug that in.
+</p>
+<div class="math">$$P_3-P_2=\frac{q}{p}\frac{q}{p}(P_1-1)=(\frac{q}{p})^2(P_1-1)$$</div>
+<p>Now consider the general case with <span class="math">\(n\)</span>. Feel free to try with <span class="math">\(n=3\)</span> if you haven't gotten the pattern. If you keep iterating, you'll continue to wind up with something that equals <span class="math">\((\frac{q}{p})^n(P_1-1)\)</span>.</p>
+<h3>Fun with Geometric Sequences</h3>
+<p>Let's take another route now. We've simplified <span class="math">\(P_{n+1}-P_n\)</span>, but what about when we're not just looking at a difference of 1 game? Let's exploit our other initial condition of <span class="math">\(P_{a+b}=1\)</span> and solve for <span class="math">\(P_{a+b}-P_n\)</span>. Again, let's plug in some numbers. Let's say <span class="math">\(n=1\)</span> and <span class="math">\(a+b=3\)</span>. Now we have <span class="math">\(P_3-P_1\)</span>. From the work we did above we know <span class="math">\(P_3-P_2\)</span> and <span class="math">\(P_2-P_1\)</span>, and adding those together gives us <span class="math">\(P_3-P_1\)</span>. We could also write that as</p>
+<div class="math">$$P_3-P_1=$\sum\limits_{k=1}^{2}P_{k+1}-P_k$$</div>
+<p>Or more generally
+</p>
+<div class="math">$$P_{a+b}-P_{n}=$\sum\limits_{k=n}^{a+b-1}P_{k+1}-P_k$$</div>
+<p>.</p>
+<p>We can plug in our solution for <span class="math">\(P_{n+1}-P_n\)</span> from <span class="math">\((3)\)</span> into the <span class="math">\(P_{k+1}-P_k\)</span> and get </p>
+<div class="math">\begin{equation} =\sum\limits_{k=n}^{a+b-1}(\frac{q}{p})^k(P_1-1) \end{equation}</div>
+<p>Now we'd like to get rid of that summation term. This is a geometric series, so there's a very cool trick we can perform here to get find what that summation is equal to. I had completely forgotten about learning this trick in grad school. Like I said, my math is very rusty and I'm sure yours is too. So here's how you solve for it. Let's call the sequence <span class="math">\(\sum\limits_{k=n}^{a+b-1}(\frac{q}{p})^k=S_k\)</span>. Okay, let's start expanding it out:</p>
+<div class="math">\begin{equation} S_k=\frac{q}{p}^n+\frac{q}{p}^{n+1}+...+\frac{q}{p}^{a+b-1} \end{equation}</div>
+<p>Now the trick, where we multiply each side by <span class="math">\(\frac{q}{p}\)</span>.</p>
+<div class="math">\begin{equation} \frac{q}{p}S_k=\frac{q}{p}^{n+1}+\frac{q}{p}^{n+2}+...+\frac{q}{p}^{a+b} \end{equation}</div>
+<p>And let's subtract <span class="math">\((6)\)</span> from <span class="math">\((5)\)</span>. Almost all the terms on the right hand side cancel out.</p>
+<div class="math">$$ S_k - \frac{q}{p}S_k =\frac{q}{p}^n - \frac{q}{p}^{a+b} $$</div>
+<div class="math">$$ (1-\frac{q}{p})S_k =\frac{q}{p}^n - \frac{q}{p}^{a+b} $$</div>
+<div class="math">$$ S_k =\frac{\frac{q}{p}^n - \frac{q}{p}^{a+b}}{1-\frac{q}{p}} $$</div>
+<p>Very cool, right? We can plug that back in for the summation in <span class="math">\((4)\)</span> and get</p>
+<div class="math">\begin{equation} P_{a+b}-P_{n}=(P_1-1)\frac{\frac{q}{p}^n - \frac{q}{p}^{a+b}}{1-\frac{q}{p}} \end{equation}</div>
+<h3>Home stretch!</h3>
+<p>We're basically home free now. Recall that <span class="math">\(P_{a+b}=0\)</span> and then multiply both sides by <span class="math">\(-1\)</span> to get</p>
+<div class="math">\begin{equation} P_n=(1-P_1)\frac{\frac{q}{p}^n - \frac{q}{p}^{a+b}}{1-\frac{q}{p}} \end{equation}</div>
+<p>We've almost written this in terms of only <span class="math">\(n,a, and b\)</span>, but we still don't know what <span class="math">\((1-P_1)\)</span> is. We can take care of that by using the other initial condition again <span class="math">\(P_0=1\)</span>.</p>
+<div class="math">\begin{equation} P_0=(1-P_1)\frac{\frac{q}{p}^0 - \frac{q}{p}^{a+b}}{1-\frac{q}{p}}=1 \end{equation}</div>
+<p>We can now divide $(8) by 1.</p>
+<div class="math">$$P_n=\frac{(1-P_1)}{(1-P_1)}\frac{(\frac{q}{p}^n - \frac{q}{p}^{a+b})(1-\frac{q}{p})}{(\frac{q}{p}^0 - \frac{q}{p}^{a+b})(1-\frac{q}{p})}$$</div>
+<p>Which you can see a lot can be cancelled out from. Also, <span class="math">\(\frac{q}{p}^0=1\)</span>. That gives us
+</p>
+<div class="math">$$P_n=\frac{(\frac{q}{p})^n - (\frac{q}{p})^{a+b}}{1-(\frac{q}{p})^{a+b}}$$</div>
+<p>Which is our answer! That's quite a bit of math, but laid out step by step with explanations it's very straightforward. Now that we've got our solution, let's build some intuition around that last equation and simulate some gambling scenarios.</p>
+<h2>Intuition and moral of The Gambler's Ruin</h2>
+<p>The earliest mention of this problem was in a letter from Blaise Pascal to Pierre Fermat in 1656. That was obviously pre-Vegas. Today, the problem is often used as a cautionary tale for anyone naive enough to think they can beat the house on their next trip to Vegas. As we'll see with some simulations, as long as the odds are not in your favor you basically will always go broke. Even if you're playing a game where you have a 49.9% chance of winning, your probability of being ruined is always going to look pretty bad. In fact, if you're playing against the casino, and not Player B (who has less money than the casino), your probability of ruin is basically 1 unless you're incredibly rich.</p>
+<p>So moral of the story: If you're playing a gambling game like the one described in this problem, quit while (and if) you're ahead. Roulette is probably the most relevant game to this problem. Roulette has nearly symetric payout odds, with the odds just slightly tipped towards the house. If you go to Vegas and play one dollar roulette, you will eventually go broke. The same is true for any game in the casino, except for poker.</p>
+<p>So why don't casinos make unlimited money? Reducing real life problems to simple probability math problems is a concept coined by Nassim Taleb as the [Ludic Fallacy](https://en.wikipedia.org/wiki/Ludic_fallacy. The Ludic (from ludus, which is Latin for games) Fallacy warns against using the use of games to predict real life situations. One of my favorite parts of The Black Swan was the chapter on the Ludic Fallacy. In that chapter, Taleb writes about how probability like the Gambler's Ruin should never be applied to complex domains and should be relegated only to things like casinos. He mentions that he lectured a team of executives from a casino on this, telling them that their business was really the only place where one could apply vanilla probability and statistics. It turned out, however, that even the casino could not just apply the learnings from the Gambler's Ruin and go home happy. The casino he was lecturing had suffered major losses that year from completely unpredictable outcomes - most notably that a tiger in one of their performances mauled a performer on stage causing a lot of unforseen damage. So even a domain that seems ludic is not!</p>
+<h2>Simulating</h2>
+<p>TBD</p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script><p><a href="http://timabe.me/posts/2017/04/gamblers_ruin/#disqus_thread">Comments</a>.</p>                </article>
             </aside><!-- /#featured -->
                 <section id="content" class="body">
                     <hr />
                     <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h3><a href="http://timabe.me/posts/2017/04/joule_review/" rel="bookmark"
+                           title="Permalink to Product Review: Chefsteps' Joule">Product Review: Chefsteps' Joule</a></h3>
+                </header>
+
+                <div class="entry-content">
+                <p>I tend to write a lot about reading and data. However, I spend <em>a lot</em> of time both cooking and watching cooking videos on YouTube. To the point where I've nearly developed a bedtime dependency on a few YouTube videos in bed to help me fall asleep. It's ...</p>
+                <a class="readmore" href="http://timabe.me/posts/2017/04/joule_review/">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -143,15 +258,12 @@
 
 
 
-    <script type="text/javascript">
-    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-    </script>
-    <script type="text/javascript">
-    try {
-        var pageTracker = _gat._getTracker("UA-73240359-1");
-    pageTracker._trackPageview();
-    } catch(err) {}</script>
+  <script>
+    !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="4.0.0";
+    analytics.load("sGhEREXj2r2WIBsNh9V0WohC0EKVKjPt");
+    analytics.page();
+    }}();
+  </script>
 <script type="text/javascript">
     var disqus_shortname = 'timabe-me';
     (function () {

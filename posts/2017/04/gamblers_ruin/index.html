@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>tim abraham - Tim Abraham</title>
+        <title>The Gambler's Ruin: A simple explanation and derivation</title>
         <meta charset="utf-8" />
         <meta name="generator" content="Pelican" />
+        <meta name="keywords" content="math, probability, learning, blog" />
+        <meta name="category" content="blog" />
+        <meta name="description" content="I've recently had the itch to break out some textbooks and do a little math. Don't ask me where that desire comes from, but I find working on math problems fun. A few years ago I bought a probability textbook, which I learned about through an Amazon review ..." />
         <meta name="author" content="Tim Abraham" />
         <meta name="copyright" content="Tim Abraham" />
-        <meta name="robots" content="noindex,follow">
+        <meta name="date" content="2017-04-17 00:00:00-07:00">
+        <meta name="robots" content="index,follow">
 
         <link rel="stylesheet" href="http://timabe.me/theme/css/main.css" type="text/css" />
 
@@ -24,15 +28,21 @@
                     <a href="https://pies.timabe.me/">pies</a>&nbsp;
                 </nav>
         </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="posts/2017/04/gamblers_ruin/" rel="bookmark"
+           title="Permalink to The Gambler's Ruin: A simple explanation and derivation">The Gambler's Ruin: A simple explanation and derivation</a></h1>
+<a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="timabe">Tweet</a><script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>
+    </header>
 
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="http://timabe.me/posts/2017/04/gamblers_ruin/">The Gambler's Ruin: A simple explanation and derivation</a></h1>
+    <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2017-04-17T00:00:00-07:00">
                 April 2017
         </abbr>
-<p>tags: <a href="http://timabe.me/tag/math/">math</a><a href="http://timabe.me/tag/probability/">probability</a><a href="http://timabe.me/tag/learning/">learning</a></p></footer><!-- /.post-info --><p>I've recently had the itch to break out some textbooks and do a little math. Don't ask me where that desire comes from, but I find working on math problems fun. A few years ago I bought a probability textbook, which I learned about through an Amazon review by my intellectual hero, Nassim Taleb (<a href="https://www.amazon.com/review/RBJX110Q38V9V">here's the review</a>). Since then it has mainly been sitting on my book shelf, but occasionally I leaf through it and try to refresh my memory on some concept or learn a new one.</p>
+<p>tags: <a href="http://timabe.me/tag/math/">math</a><a href="http://timabe.me/tag/probability/">probability</a><a href="http://timabe.me/tag/learning/">learning</a></p></footer><!-- /.post-info -->      <p>I've recently had the itch to break out some textbooks and do a little math. Don't ask me where that desire comes from, but I find working on math problems fun. A few years ago I bought a probability textbook, which I learned about through an Amazon review by my intellectual hero, Nassim Taleb (<a href="https://www.amazon.com/review/RBJX110Q38V9V">here's the review</a>). Since then it has mainly been sitting on my book shelf, but occasionally I leaf through it and try to refresh my memory on some concept or learn a new one.</p>
 <p>In the book, I came across a very famous problem in probability called <a href="https://en.wikipedia.org/wiki/Gambler%27s_ruin">The Gambler's Ruin</a>. In the problem, we have the following scenario:</p>
 <blockquote>
 <p>Two players, Player A and Player B, play a series of consecutive gambling games until one of the players loses all their money. Player A starts with a dollars and Player B starts with b dollars and the loser pays one dollar to the winner in each game. Player A's chance of winning a game is <span class="math">\(p\)</span> and Player B's chance is <span class="math">\(q\)</span> (where <span class="math">\(p+q=1\)</span>). What is the probability, at any level of wealth Player A is at, that he will be ruined?</p>
@@ -164,88 +174,23 @@ But we know from our initial conditions that <span class="math">\(P_0=1\)</span>
         "}";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-</script><p><a href="http://timabe.me/posts/2017/04/gamblers_ruin/#disqus_thread">Comments</a>.</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+</script>
+    </div><!-- /.entry-content -->
+    <div class="comments">
+      <h2>comments</h2>
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_identifier = "posts/2017/04/gamblers_ruin/";
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://timabe-me.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+    </div>
 
-            <li><article class="hentry">
-                <header>
-                    <h3><a href="http://timabe.me/posts/2017/04/joule_review/" rel="bookmark"
-                           title="Permalink to Product Review: Chefsteps' Joule">Product Review: Chefsteps' Joule</a></h3>
-                </header>
-
-                <div class="entry-content">
-                <p>I tend to write a lot about reading and data. However, I spend <em>a lot</em> of time both cooking and watching cooking videos on YouTube. To the point where I've nearly developed a bedtime dependency on a few YouTube videos in bed to help me fall asleep. It's ...</p>
-                <a class="readmore" href="http://timabe.me/posts/2017/04/joule_review/">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h3><a href="http://timabe.me/posts/2017/01/one_hr_analytics/" rel="bookmark"
-                           title="Permalink to Bootstrap your Analytics in 1 hour or Less">Bootstrap your Analytics in 1 hour or Less</a></h3>
-                </header>
-
-                <div class="entry-content">
-                <p>How startups should do their analytics</p>
-                <a class="readmore" href="http://timabe.me/posts/2017/01/one_hr_analytics/">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h3><a href="http://timabe.me/posts/2017/01/year-in-books/" rel="bookmark"
-                           title="Permalink to A year in books">A year in books</a></h3>
-                </header>
-
-                <div class="entry-content">
-                <p>An analysis of my reading habits last year</p>
-                <a class="readmore" href="http://timabe.me/posts/2017/01/year-in-books/">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h3><a href="http://timabe.me/posts/2016/04/antifragile/" rel="bookmark"
-                           title="Permalink to Antifragile">Antifragile</a></h3>
-                </header>
-
-                <div class="entry-content">
-                <p>More wisdom here than anywhere</p>
-                <a class="readmore" href="http://timabe.me/posts/2016/04/antifragile/">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h3><a href="http://timabe.me/posts/2016/03/nnt/" rel="bookmark"
-                           title="Permalink to Nassim Taleb">Nassim Taleb</a></h3>
-                </header>
-
-                <div class="entry-content">
-                <p>What my favorite author writes about.</p>
-                <a class="readmore" href="http://timabe.me/posts/2016/03/nnt/">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h3><a href="http://timabe.me/posts/2016/01/history-of-the-jews/" rel="bookmark"
-                           title="Permalink to History of The Jews: A lengthy review of a lenghty book.">History of The Jews: A lengthy review of a lenghty book.</a></h3>
-                </header>
-
-                <div class="entry-content">
-                <p>First book of 2016</p>
-                <a class="readmore" href="http://timabe.me/posts/2016/01/history-of-the-jews/">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-            </ol><!-- /#posts-list -->
-<p class="paginator">
-    Page 1 / 1
-</p>
-            </section><!-- /#content -->
+  </article>
+</section>
         <section id="extras" class="body">
                 <div class="social">
                     <ul>
