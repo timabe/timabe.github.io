@@ -41,10 +41,10 @@ But we know from our initial conditions that &lt;span class="math"&gt;\(P_0=1\)&
 &lt;p&gt;Now consider the general case with &lt;span class="math"&gt;\(n\)&lt;/span&gt;. Feel free to try with &lt;span class="math"&gt;\(n=3\)&lt;/span&gt; if you haven't gotten the pattern. If you keep iterating, you'll continue to wind up with something that equals &lt;span class="math"&gt;\((\frac{q}{p})^n(P_1-1)\)&lt;/span&gt;.&lt;/p&gt;
 &lt;h3&gt;Fun with Geometric Sequences&lt;/h3&gt;
 &lt;p&gt;Let's take another route now. We've simplified &lt;span class="math"&gt;\(P_{n+1}-P_n\)&lt;/span&gt;, but what about when we're not just looking at a difference of 1 game? Let's exploit our other initial condition of &lt;span class="math"&gt;\(P_{a+b}=1\)&lt;/span&gt; and solve for &lt;span class="math"&gt;\(P_{a+b}-P_n\)&lt;/span&gt;. Again, let's plug in some numbers. Let's say &lt;span class="math"&gt;\(n=1\)&lt;/span&gt; and &lt;span class="math"&gt;\(a+b=3\)&lt;/span&gt;. Now we have &lt;span class="math"&gt;\(P_3-P_1\)&lt;/span&gt;. From the work we did above we know &lt;span class="math"&gt;\(P_3-P_2\)&lt;/span&gt; and &lt;span class="math"&gt;\(P_2-P_1\)&lt;/span&gt;, and adding those together gives us &lt;span class="math"&gt;\(P_3-P_1\)&lt;/span&gt;. We could also write that as&lt;/p&gt;
-&lt;div class="math"&gt;$$P_3-P_1=$\sum\limits_{k=1}^{2}P_{k+1}-P_k$$&lt;/div&gt;
+&lt;div class="math"&gt;$$P_3-P_1=\sum\limits_{k=1}^{2}P_{k+1}-P_k$$&lt;/div&gt;
 &lt;p&gt;Or more generally
 &lt;/p&gt;
-&lt;div class="math"&gt;$$P_{a+b}-P_{n}=$\sum\limits_{k=n}^{a+b-1}P_{k+1}-P_k$$&lt;/div&gt;
+&lt;div class="math"&gt;$$P_{a+b}-P_{n}=\sum\limits_{k=n}^{a+b-1}P_{k+1}-P_k$$&lt;/div&gt;
 &lt;p&gt;.&lt;/p&gt;
 &lt;p&gt;We can plug in our solution for &lt;span class="math"&gt;\(P_{n+1}-P_n\)&lt;/span&gt; from &lt;span class="math"&gt;\((3)\)&lt;/span&gt; into the &lt;span class="math"&gt;\(P_{k+1}-P_k\)&lt;/span&gt; and get &lt;/p&gt;
 &lt;div class="math"&gt;\begin{equation} =\sum\limits_{k=n}^{a+b-1}(\frac{q}{p})^k(P_1-1) \end{equation}&lt;/div&gt;
@@ -61,9 +61,9 @@ But we know from our initial conditions that &lt;span class="math"&gt;\(P_0=1\)&
 &lt;h3&gt;Home stretch!&lt;/h3&gt;
 &lt;p&gt;We're basically home free now. Recall that &lt;span class="math"&gt;\(P_{a+b}=0\)&lt;/span&gt; and then multiply both sides by &lt;span class="math"&gt;\(-1\)&lt;/span&gt; to get&lt;/p&gt;
 &lt;div class="math"&gt;\begin{equation} P_n=(1-P_1)\frac{\frac{q}{p}^n - \frac{q}{p}^{a+b}}{1-\frac{q}{p}} \end{equation}&lt;/div&gt;
-&lt;p&gt;We've almost written this in terms of only &lt;span class="math"&gt;\(n,a, and b\)&lt;/span&gt;, but we still don't know what &lt;span class="math"&gt;\((1-P_1)\)&lt;/span&gt; is. We can take care of that by using the other initial condition again &lt;span class="math"&gt;\(P_0=1\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;We've almost written this in terms of only n,a, and b, but we still don't know what &lt;span class="math"&gt;\((1-P_1)\)&lt;/span&gt; is. We can take care of that by using the other initial condition again &lt;span class="math"&gt;\(P_0=1\)&lt;/span&gt;.&lt;/p&gt;
 &lt;div class="math"&gt;\begin{equation} P_0=(1-P_1)\frac{\frac{q}{p}^0 - \frac{q}{p}^{a+b}}{1-\frac{q}{p}}=1 \end{equation}&lt;/div&gt;
-&lt;p&gt;We can now divide $(8) by 1.&lt;/p&gt;
+&lt;p&gt;We can now divide &lt;span class="math"&gt;\((8)\)&lt;/span&gt; by 1.&lt;/p&gt;
 &lt;div class="math"&gt;$$P_n=\frac{(1-P_1)}{(1-P_1)}\frac{(\frac{q}{p}^n - \frac{q}{p}^{a+b})(1-\frac{q}{p})}{(\frac{q}{p}^0 - \frac{q}{p}^{a+b})(1-\frac{q}{p})}$$&lt;/div&gt;
 &lt;p&gt;Which you can see a lot can be cancelled out from. Also, &lt;span class="math"&gt;\(\frac{q}{p}^0=1\)&lt;/span&gt;. That gives us
 &lt;/p&gt;
@@ -96,9 +96,9 @@ But we know from our initial conditions that &lt;span class="math"&gt;\(P_0=1\)&
 
 
 &lt;p&gt;Let's try a few values. First let's make the game only slightly in favor of player B but give him more and more wealth.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;b_wealth&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;60&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;200&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;500&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1000&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;5000&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;10000&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;b_wealth&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;60&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;200&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;500&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1000&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;b_wealth&lt;/span&gt; &lt;span class="o"&gt;%&amp;gt;%&lt;/span&gt; &lt;span class="n"&gt;map_dbl&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;prob_ruin_a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;0.499&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="mf"&gt;0.5498341&lt;/span&gt; &lt;span class="mf"&gt;0.5994213&lt;/span&gt; &lt;span class="mf"&gt;0.7306926&lt;/span&gt; &lt;span class="mf"&gt;0.8711488&lt;/span&gt; &lt;span class="mf"&gt;0.9724110&lt;/span&gt; &lt;span class="mf"&gt;0.9966294&lt;/span&gt; &lt;span class="mf"&gt;1.0000000&lt;/span&gt; &lt;span class="mf"&gt;1.0000000&lt;/span&gt;
+&lt;span class="mf"&gt;0.5498341&lt;/span&gt; &lt;span class="mf"&gt;0.5994213&lt;/span&gt; &lt;span class="mf"&gt;0.7306926&lt;/span&gt; &lt;span class="mf"&gt;0.8711488&lt;/span&gt; &lt;span class="mf"&gt;0.9724110&lt;/span&gt; &lt;span class="mf"&gt;0.9966294&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -111,7 +111,7 @@ But we know from our initial conditions that &lt;span class="math"&gt;\(P_0=1\)&
 &lt;span class="n"&gt;data_frame&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;prob_p&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;prob_ruins&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;%&amp;gt;%&lt;/span&gt;
   &lt;span class="n"&gt;ggplot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;aes&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;prob_p&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;prob_ruins&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;geom_line&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;color&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;darkred&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;
   &lt;span class="n"&gt;labs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Probability of Ruin for Player A&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Probability of Player A winning a game (p)&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;title&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Both Players start with $50&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;
-  &lt;span class="n"&gt;theme_tech&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;blog&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="n"&gt;theme_tech&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;blog&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# this is a ggplot theme I use specifically for this blog. get it at github.com/timabe/ggtech&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 

@@ -19,9 +19,10 @@
                 <nav>
 
                     <a href="http://timabe.me/">about</a>&nbsp;
-                    <a href="http://timabe.me/pages/kit-list/">reading list</a>&nbsp;
+                    <a href="http://timabe.me/pages/kit-list/">reading</a>&nbsp;
                     <a href="http://timabe.me/category/blog/">blog</a>&nbsp;
                     <a href="https://pies.timabe.me/">pies</a>&nbsp;
+                    <a href="http://timabe.me/archives.html">achives</a>
                 </nav>
         </header><!-- /#banner -->
 
@@ -74,10 +75,10 @@ But we know from our initial conditions that <span class="math">\(P_0=1\)</span>
 <p>Now consider the general case with <span class="math">\(n\)</span>. Feel free to try with <span class="math">\(n=3\)</span> if you haven't gotten the pattern. If you keep iterating, you'll continue to wind up with something that equals <span class="math">\((\frac{q}{p})^n(P_1-1)\)</span>.</p>
 <h3>Fun with Geometric Sequences</h3>
 <p>Let's take another route now. We've simplified <span class="math">\(P_{n+1}-P_n\)</span>, but what about when we're not just looking at a difference of 1 game? Let's exploit our other initial condition of <span class="math">\(P_{a+b}=1\)</span> and solve for <span class="math">\(P_{a+b}-P_n\)</span>. Again, let's plug in some numbers. Let's say <span class="math">\(n=1\)</span> and <span class="math">\(a+b=3\)</span>. Now we have <span class="math">\(P_3-P_1\)</span>. From the work we did above we know <span class="math">\(P_3-P_2\)</span> and <span class="math">\(P_2-P_1\)</span>, and adding those together gives us <span class="math">\(P_3-P_1\)</span>. We could also write that as</p>
-<div class="math">$$P_3-P_1=$\sum\limits_{k=1}^{2}P_{k+1}-P_k$$</div>
+<div class="math">$$P_3-P_1=\sum\limits_{k=1}^{2}P_{k+1}-P_k$$</div>
 <p>Or more generally
 </p>
-<div class="math">$$P_{a+b}-P_{n}=$\sum\limits_{k=n}^{a+b-1}P_{k+1}-P_k$$</div>
+<div class="math">$$P_{a+b}-P_{n}=\sum\limits_{k=n}^{a+b-1}P_{k+1}-P_k$$</div>
 <p>.</p>
 <p>We can plug in our solution for <span class="math">\(P_{n+1}-P_n\)</span> from <span class="math">\((3)\)</span> into the <span class="math">\(P_{k+1}-P_k\)</span> and get </p>
 <div class="math">\begin{equation} =\sum\limits_{k=n}^{a+b-1}(\frac{q}{p})^k(P_1-1) \end{equation}</div>
@@ -94,9 +95,9 @@ But we know from our initial conditions that <span class="math">\(P_0=1\)</span>
 <h3>Home stretch!</h3>
 <p>We're basically home free now. Recall that <span class="math">\(P_{a+b}=0\)</span> and then multiply both sides by <span class="math">\(-1\)</span> to get</p>
 <div class="math">\begin{equation} P_n=(1-P_1)\frac{\frac{q}{p}^n - \frac{q}{p}^{a+b}}{1-\frac{q}{p}} \end{equation}</div>
-<p>We've almost written this in terms of only <span class="math">\(n,a, and b\)</span>, but we still don't know what <span class="math">\((1-P_1)\)</span> is. We can take care of that by using the other initial condition again <span class="math">\(P_0=1\)</span>.</p>
+<p>We've almost written this in terms of only n,a, and b, but we still don't know what <span class="math">\((1-P_1)\)</span> is. We can take care of that by using the other initial condition again <span class="math">\(P_0=1\)</span>.</p>
 <div class="math">\begin{equation} P_0=(1-P_1)\frac{\frac{q}{p}^0 - \frac{q}{p}^{a+b}}{1-\frac{q}{p}}=1 \end{equation}</div>
-<p>We can now divide $(8) by 1.</p>
+<p>We can now divide <span class="math">\((8)\)</span> by 1.</p>
 <div class="math">$$P_n=\frac{(1-P_1)}{(1-P_1)}\frac{(\frac{q}{p}^n - \frac{q}{p}^{a+b})(1-\frac{q}{p})}{(\frac{q}{p}^0 - \frac{q}{p}^{a+b})(1-\frac{q}{p})}$$</div>
 <p>Which you can see a lot can be cancelled out from. Also, <span class="math">\(\frac{q}{p}^0=1\)</span>. That gives us
 </p>
@@ -129,9 +130,9 @@ But we know from our initial conditions that <span class="math">\(P_0=1\)</span>
 
 
 <p>Let's try a few values. First let's make the game only slightly in favor of player B but give him more and more wealth.</p>
-<div class="highlight"><pre><span class="n">b_wealth</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">5000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
+<div class="highlight"><pre><span class="n">b_wealth</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
 <span class="n">b_wealth</span> <span class="o">%&gt;%</span> <span class="n">map_dbl</span><span class="p">(</span><span class="n">prob_ruin_a</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="mf">0.499</span><span class="p">)</span>
-<span class="mf">0.5498341</span> <span class="mf">0.5994213</span> <span class="mf">0.7306926</span> <span class="mf">0.8711488</span> <span class="mf">0.9724110</span> <span class="mf">0.9966294</span> <span class="mf">1.0000000</span> <span class="mf">1.0000000</span>
+<span class="mf">0.5498341</span> <span class="mf">0.5994213</span> <span class="mf">0.7306926</span> <span class="mf">0.8711488</span> <span class="mf">0.9724110</span> <span class="mf">0.9966294</span>
 </pre></div>
 
 
@@ -144,7 +145,7 @@ But we know from our initial conditions that <span class="math">\(P_0=1\)</span>
 <span class="n">data_frame</span><span class="p">(</span><span class="n">prob_p</span><span class="p">,</span> <span class="n">prob_ruins</span><span class="p">)</span> <span class="o">%&gt;%</span>
   <span class="n">ggplot</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">prob_p</span><span class="p">,</span> <span class="n">prob_ruins</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_line</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;darkred&#39;</span><span class="p">)</span> <span class="o">+</span>
   <span class="n">labs</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;Probability of Ruin for Player A&#39;</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;Probability of Player A winning a game (p)&#39;</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Both Players start with $50&#39;</span><span class="p">)</span> <span class="o">+</span>
-  <span class="n">theme_tech</span><span class="p">(</span><span class="s1">&#39;blog&#39;</span><span class="p">)</span>
+  <span class="n">theme_tech</span><span class="p">(</span><span class="s1">&#39;blog&#39;</span><span class="p">)</span> <span class="c1"># this is a ggplot theme I use specifically for this blog. get it at github.com/timabe/ggtech</span>
 </pre></div>
 
 
