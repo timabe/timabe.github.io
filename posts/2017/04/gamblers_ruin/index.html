@@ -111,13 +111,58 @@ But we know from our initial conditions that <span class="math">\(P_0=1\)</span>
 <p>Which you can see a lot can be cancelled out from. Also, <span class="math">\(\frac{q}{p}^0=1\)</span>. That gives us
 </p>
 <div class="math">$$P_n=\frac{(\frac{q}{p})^n - (\frac{q}{p})^{a+b}}{1-(\frac{q}{p})^{a+b}}$$</div>
+<p>And if we substitute <span class="math">\(n=a\)</span>, we can then factor out a <span class="math">\(\frac{q}{p}^{a+b}\)</span> from the numerator and denominator and we'll get the probability of ruin for player A when his wealth is a.</p>
+<div class="math">$$P_a=\frac{1 - \frac{p}{q}^b}{1-\frac{p}{q}^{a+b}}$$</div>
 <p>Which is our answer! That's quite a bit of math, but laid out step by step with explanations it's very straightforward. Now that we've got our solution, let's build some intuition around that last equation and simulate some gambling scenarios.</p>
 <h2>Intuition and moral of The Gambler's Ruin</h2>
-<p>The earliest mention of this problem was in a letter from Blaise Pascal to Pierre Fermat in 1656. That was obviously pre-Vegas. Today, the problem is often used as a cautionary tale for anyone naive enough to think they can beat the house on their next trip to Vegas. As we'll see with some simulations, as long as the odds are not in your favor you basically will always go broke. Even if you're playing a game where you have a 49.9% chance of winning, your probability of being ruined is always going to look pretty bad. In fact, if you're playing against the casino, and not Player B (who has less money than the casino), your probability of ruin is basically 1 unless you're incredibly rich.</p>
-<p>So moral of the story: If you're playing a gambling game like the one described in this problem, quit while (and if) you're ahead. Roulette is probably the most relevant game to this problem. Roulette has nearly symetric payout odds, with the odds just slightly tipped towards the house. If you go to Vegas and play one dollar roulette, you will eventually go broke. The same is true for any game in the casino, except for poker.</p>
-<p>So why don't casinos make unlimited money? Reducing real life problems to simple probability math problems is a concept coined by Nassim Taleb as the [Ludic Fallacy](https://en.wikipedia.org/wiki/Ludic_fallacy. The Ludic (from ludus, which is Latin for games) Fallacy warns against using the use of games to predict real life situations. One of my favorite parts of The Black Swan was the chapter on the Ludic Fallacy. In that chapter, Taleb writes about how probability like the Gambler's Ruin should never be applied to complex domains and should be relegated only to things like casinos. He mentions that he lectured a team of executives from a casino on this, telling them that their business was really the only place where one could apply vanilla probability and statistics. It turned out, however, that even the casino could not just apply the learnings from the Gambler's Ruin and go home happy. The casino he was lecturing had suffered major losses that year from completely unpredictable outcomes - most notably that a tiger in one of their performances mauled a performer on stage causing a lot of unforseen damage. So even a domain that seems ludic is not!</p>
-<h2>Simulating</h2>
-<p>TBD</p>
+<p>The earliest mention of this problem was in a letter from Blaise Pascal to Pierre Fermat in 1656. That was obviously pre-Vegas. Today, the problem is often used as a cautionary tale for anyone naive enough to think they can beat the house on their next trip to the casino. As we'll see with some simulations, as long as the odds are slightly not in your favor, you will always go broke. And when you're playing against a rich opponent, like say, a deep pocketed casino, you're basically fucked.</p>
+<p>So moral of the story: If you're playing a gambling game like the one described in this problem, quit while (and if) you're ahead. Roulette is probably the most relevant game to this problem. Roulette has nearly symmetric payout odds, with the odds just slightly tipped towards the house. If you go to Vegas and play one dollar roulette, you will eventually go broke. The same is true for any game in the casino, except for poker.</p>
+<h2>Let's Simulate!</h2>
+<p>I find the best way to build intuition on a tough mathematical result is to run some simulations. We've got our solution for <span class="math">\(P_a\)</span> in terms of the win probabilities p and q and the total capital the players are currently at, which are a and b.</p>
+<p>So let's play around with these values. The formula is pretty easy to write in a programming language - I'll use R here.</p>
+<div class="highlight"><pre><span class="n">prob_ruin_a</span> <span class="o">&lt;-</span> <span class="n">function</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1"># probability of Player B winning is q</span>
+  <span class="n">q</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">p</span> <span class="c1"># since p + q have to = 1</span>
+
+  <span class="c1"># The ratio of q/p, which we used in the solution</span>
+  <span class="n">ratio</span> <span class="o">=</span> <span class="n">p</span><span class="o">/</span><span class="n">q</span>
+
+  <span class="c1"># Numerator of the solution</span>
+  <span class="n">num</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">ratio</span><span class="o">^</span><span class="n">b</span>
+
+  <span class="c1"># and Denominator</span>
+  <span class="n">den</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">ratio</span> <span class="o">^</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+
+  <span class="k">return</span><span class="p">(</span><span class="n">num</span> <span class="o">/</span> <span class="n">den</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Let's try a few values. First let's make the game only slightly in favor of player B but give him more and more wealth.</p>
+<div class="highlight"><pre><span class="n">b_wealth</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">5000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
+<span class="n">b_wealth</span> <span class="o">%&gt;%</span> <span class="n">map_dbl</span><span class="p">(</span><span class="n">prob_ruin_a</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="mf">0.499</span><span class="p">)</span>
+<span class="mf">0.5498341</span> <span class="mf">0.5994213</span> <span class="mf">0.7306926</span> <span class="mf">0.8711488</span> <span class="mf">0.9724110</span> <span class="mf">0.9966294</span> <span class="mf">1.0000000</span> <span class="mf">1.0000000</span>
+</pre></div>
+
+
+<p>We're giving almost equal odds. Player A will win the game 49.9% of the time. When they both start with $50, the chances of ruin for Player A not too bad at 55%. But even with Player B having $100, the probability of ruin for A is already at 73%, and if B has $1000 the probability of ruin is 99.7%! At $1000, Player B simply has too much in reserve for Player A to stand a chance.</p>
+<p>Using a bunch of values for Player B's wealth from $50 to $1000, we can see the probability of ruin for Player A increases exponentially.</p>
+<p><img alt="ProbabilityPlayerA" src="https://cloud.githubusercontent.com/assets/1427277/25469301/45030eb6-2ad0-11e7-8ab3-7a1ff2f88ca6.png" /></p>
+<p>And that's when the odds are almost even! Let's now keep Player A and Player B's wealth both at $50, but let's change p, the probability Player A has of winning a game.</p>
+<div class="highlight"><pre><span class="n">prob_p</span> <span class="o">&lt;-</span> <span class="n">seq</span><span class="p">(</span><span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">49</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">)</span>
+<span class="n">prob_ruins</span> <span class="o">&lt;-</span> <span class="n">prob_p</span> <span class="o">%&gt;%</span> <span class="n">map_dbl</span><span class="p">(</span><span class="n">prob_ruin_a</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">data_frame</span><span class="p">(</span><span class="n">prob_p</span><span class="p">,</span> <span class="n">prob_ruins</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="n">ggplot</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">prob_p</span><span class="p">,</span> <span class="n">prob_ruins</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_line</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;darkred&#39;</span><span class="p">)</span> <span class="o">+</span>
+  <span class="n">labs</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;Probability of Ruin for Player A&#39;</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;Probability of Player A winning a game (p)&#39;</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Both Players start with $50&#39;</span><span class="p">)</span> <span class="o">+</span>
+  <span class="n">theme_tech</span><span class="p">(</span><span class="s1">&#39;blog&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p><img alt="ProbabilityPlayerA_both50" src="https://cloud.githubusercontent.com/assets/1427277/25469482/47a27340-2ad1-11e7-9a30-4917b1510f86.png" /></p>
+<p>Yikes! Even if they have the same amount to begin with, even a slight unbalance in <span class="math">\(p/q\)</span> spells disaster for Player A. A 48% chance of winning a game leads to a 98% chance of ruin!</p>
+<h2>Conclusion</h2>
+<p>In conclusion, even if you think you are "lucky" or somehow naively believe you are skilled at games of chance, stay away from anything that resembles this problem in the real world.</p>
+<p>Hope you found the math easy to follow and let me know in the comments if you have any questions!</p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
         indent = "0em",
