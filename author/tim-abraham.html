@@ -28,193 +28,40 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="http://timabe.me/posts/2017/04/gamblers_ruin/">The Gambler's Ruin: A simple explanation and derivation</a></h1>
+                    <h1 class="entry-title"><a href="http://timabe.me/posts/2017/11/short-people/">Short People Rule</a></h1>
 <footer class="post-info">
-        <abbr class="published" title="2017-04-17T00:00:00-07:00">
-                April 2017
+        <abbr class="published" title="2017-11-16T00:00:00-08:00">
+                November 2017
         </abbr>
-<p>tags: <a href="http://timabe.me/tag/math/">math</a><a href="http://timabe.me/tag/probability/">probability</a><a href="http://timabe.me/tag/learning/">learning</a></p></footer><!-- /.post-info --><p>I've recently had the itch to break out some textbooks and do a little math. Don't ask me where that desire comes from, but I find working on math problems fun. A few years ago I bought a probability textbook, which I learned about through an Amazon review by my intellectual hero, Nassim Taleb (<a href="https://www.amazon.com/review/RBJX110Q38V9V">here's the review</a>). Since then it has mainly been sitting on my book shelf, but occasionally I leaf through it and try to refresh my memory on some concept or learn a new one.</p>
-<p>In the book, I came across a very famous problem in probability called <a href="https://en.wikipedia.org/wiki/Gambler%27s_ruin">The Gambler's Ruin</a>. In the problem, we have the following scenario:</p>
-<blockquote>
-<p>Two players, Player A and Player B, play a series of consecutive gambling games until one of the players loses all their money. Player A starts with a dollars and Player B starts with b dollars and the loser pays one dollar to the winner in each game. Player A's chance of winning a game is <span class="math">\(p\)</span> and Player B's chance is <span class="math">\(q\)</span> (where <span class="math">\(p+q=1\)</span>). What is the probability, at any level of wealth Player A is at, that he will be ruined?</p>
-</blockquote>
-<p>It's not hard to find a solution for this problem online. I even found an okay explanation of it by the <a href="https://www.youtube.com/watch?v=Rr2iSKlengg&amp;t">author of my textbook on YouTube</a>. However, I was a bit rusty on some of my math and found all the answers out there to be a bit hand wavy in their derivations. They go through the most confusing steps with no explanation, which was frustrating for me. I like simple, straightforward explanations. And since I couldn't find a single one on the Internet, I decided to contribute it myself. So let's walk through the problem, very slowly, step by step. If you follow me with a pencil and paper I guarantee you'll be able to understand the math. My goal is to be as comprehensive and thorough as possible.</p>
-<h3>The Setup</h3>
-<p>How do you even start with this problem? The question above asks "What is the probability, at any level of wealth Player A is at, that he will be ruined?". So let's call this <span class="math">\(P_n\)</span>.  <span class="math">\(P_n\)</span> is the probability that when Player A has n dollars, he will ultimately be ruined. How does Player A get to a position where he has n dollars? Well there are two ways he can get there: He can either lose a game when he has n + 1, or he can win a game when he has n - 1. We know the probability of him winning and losing a game is <span class="math">\(p\)</span> and <span class="math">\(q\)</span>, respectively, and we know these are mutually exclusive events. Therefore, we can write out the equation for <span class="math">\(P_n\)</span> as </p>
-<div class="math">\begin{equation} P_n=pP_{n+1}+qP_{n-1} \end{equation}</div>
-<p>We get there by applying the theorem of total probability if you want to start at first principles, but I think the equation makes sense without any more set up. So we have our equation to solve!</p>
-<h3>Initial conditions</h3>
-<p>Two initial conditions can help us solve the problem. </p>
-<div class="math">$$P_0=1$$</div>
-<p>
-This says that when Player A has $0, he is ruined. When Player A runs out of money, he can no longer play the game, so he's stuck in this state. His probability of ruin is therefore 1, since he has no chance of getting back in the action. </p>
-<div class="math">$$P_{a+b}=0$$</div>
-<p> This says the opposite. If Player A has won both his $a and Player B's $b, he has won all the dollars. Player B can no longer play, so the game is over and Player A has no chance of being ruined.</p>
-<h3>Solving a difference equation.</h3>
-<p>Equation <span class="math">\((1)\)</span> is known as a difference equation. I haven't solved too many of them, or at least been aware that I was, and maybe you're in the same boat. We can rewrite equation <span class="math">\((1)\)</span> as </p>
-<div class="math">\begin{equation} p(P_{n+1}-P_n) = q(P_n-P_{n-1})\end{equation}</div>
-<p>
-or </p>
-<div class="math">$$P_{n+1}-P_n=\frac{q}{p}(P_n-P_{n-1})$$</div>
-<p>.</p>
-<p>Hopefully you're still with me. All we did to get <span class="math">\((2)\)</span> was use the fact that <span class="math">\(p+q=1\)</span> and multiply the left hand side <span class="math">\(P_n\)</span> by <span class="math">\((p+q)\)</span>. The next part of the solution I got stuck on a bit. In most of the derivations I saw, we go from the above equation, to </p>
-<div class="math">\begin{equation} P_{n+1}-P_n=\frac{q}{p}(P_n-P_{n-1})=(\frac{q}{p})^n(P_1-1) \end{equation}</div>
-<p>.</p>
-<p>Huh? How'd we get there? Let me show you. Let's try plugging in some numbers. First let's say <span class="math">\(n=1\)</span>. Plug that into <span class="math">\((3)\)</span></p>
-<div class="math">$$P_2-P_1=\frac{q}{p}(P_1-P_0)$$</div>
-<p>
-But we know from our initial conditions that <span class="math">\(P_0=1\)</span>, so:
-</p>
-<div class="math">$$P_2-P_1=\frac{q}{p}(P_1-1)$$</div>
-<p>Great, now let's try for <span class="math">\(n=2\)</span>. Plugged into (3) gives
-</p>
-<div class="math">$$P_3-P_2=\frac{q}{p}(P_2-P1)$$</div>
-<p>You can see a pattern emerging here. But you can also see that the <span class="math">\((P_2-P_1)\)</span> in the above equation was already solved for in the <span class="math">\(n=1\)</span> scenario. So we can simply plug that in.
-</p>
-<div class="math">$$P_3-P_2=\frac{q}{p}\frac{q}{p}(P_1-1)=(\frac{q}{p})^2(P_1-1)$$</div>
-<p>Now consider the general case with <span class="math">\(n\)</span>. Feel free to try with <span class="math">\(n=3\)</span> if you haven't gotten the pattern. If you keep iterating, you'll continue to wind up with something that equals <span class="math">\((\frac{q}{p})^n(P_1-1)\)</span>.</p>
-<h3>Fun with Geometric Sequences</h3>
-<p>Let's take another route now. We've simplified <span class="math">\(P_{n+1}-P_n\)</span>, but what about when we're not just looking at a difference of 1 game? Let's exploit our other initial condition of <span class="math">\(P_{a+b}=1\)</span> and solve for <span class="math">\(P_{a+b}-P_n\)</span>. Again, let's plug in some numbers. Let's say <span class="math">\(n=1\)</span> and <span class="math">\(a+b=3\)</span>. Now we have <span class="math">\(P_3-P_1\)</span>. From the work we did above we know <span class="math">\(P_3-P_2\)</span> and <span class="math">\(P_2-P_1\)</span>, and adding those together gives us <span class="math">\(P_3-P_1\)</span>. We could also write that as</p>
-<div class="math">$$P_3-P_1=\sum\limits_{k=1}^{2}P_{k+1}-P_k$$</div>
-<p>Or more generally
-</p>
-<div class="math">$$P_{a+b}-P_{n}=\sum\limits_{k=n}^{a+b-1}P_{k+1}-P_k$$</div>
-<p>.</p>
-<p>We can plug in our solution for <span class="math">\(P_{n+1}-P_n\)</span> from <span class="math">\((3)\)</span> into the <span class="math">\(P_{k+1}-P_k\)</span> and get </p>
-<div class="math">\begin{equation} =\sum\limits_{k=n}^{a+b-1}(\frac{q}{p})^k(P_1-1) \end{equation}</div>
-<p>Now we'd like to get rid of that summation term. This is a geometric series, so there's a very cool trick we can perform here to get find what that summation is equal to. I had completely forgotten about learning this trick in grad school. Like I said, my math is very rusty and I'm sure yours is too. So here's how you solve for it. Let's call the sequence <span class="math">\(\sum\limits_{k=n}^{a+b-1}(\frac{q}{p})^k=S_k\)</span>. Okay, let's start expanding it out:</p>
-<div class="math">\begin{equation} S_k=\frac{q}{p}^n+\frac{q}{p}^{n+1}+...+\frac{q}{p}^{a+b-1} \end{equation}</div>
-<p>Now the trick, where we multiply each side by <span class="math">\(\frac{q}{p}\)</span>.</p>
-<div class="math">\begin{equation} \frac{q}{p}S_k=\frac{q}{p}^{n+1}+\frac{q}{p}^{n+2}+...+\frac{q}{p}^{a+b} \end{equation}</div>
-<p>And let's subtract <span class="math">\((6)\)</span> from <span class="math">\((5)\)</span>. Almost all the terms on the right hand side cancel out.</p>
-<div class="math">$$ S_k - \frac{q}{p}S_k =\frac{q}{p}^n - \frac{q}{p}^{a+b} $$</div>
-<div class="math">$$ (1-\frac{q}{p})S_k =\frac{q}{p}^n - \frac{q}{p}^{a+b} $$</div>
-<div class="math">$$ S_k =\frac{\frac{q}{p}^n - \frac{q}{p}^{a+b}}{1-\frac{q}{p}} $$</div>
-<p>Very cool, right? We can plug that back in for the summation in <span class="math">\((4)\)</span> and get</p>
-<div class="math">\begin{equation} P_{a+b}-P_{n}=(P_1-1)\frac{\frac{q}{p}^n - \frac{q}{p}^{a+b}}{1-\frac{q}{p}} \end{equation}</div>
-<h3>Home stretch!</h3>
-<p>We're basically home free now. Recall that <span class="math">\(P_{a+b}=0\)</span> and then multiply both sides by <span class="math">\(-1\)</span> to get</p>
-<div class="math">\begin{equation} P_n=(1-P_1)\frac{\frac{q}{p}^n - \frac{q}{p}^{a+b}}{1-\frac{q}{p}} \end{equation}</div>
-<p>We've almost written this in terms of only n,a, and b, but we still don't know what <span class="math">\((1-P_1)\)</span> is. We can take care of that by using the other initial condition again <span class="math">\(P_0=1\)</span>.</p>
-<div class="math">\begin{equation} P_0=(1-P_1)\frac{\frac{q}{p}^0 - \frac{q}{p}^{a+b}}{1-\frac{q}{p}}=1 \end{equation}</div>
-<p>We can now divide <span class="math">\((8)\)</span> by 1.</p>
-<div class="math">$$P_n=\frac{(1-P_1)}{(1-P_1)}\frac{(\frac{q}{p}^n - \frac{q}{p}^{a+b})(1-\frac{q}{p})}{(\frac{q}{p}^0 - \frac{q}{p}^{a+b})(1-\frac{q}{p})}$$</div>
-<p>Which you can see a lot can be cancelled out from. Also, <span class="math">\(\frac{q}{p}^0=1\)</span>. That gives us
-</p>
-<div class="math">$$P_n=\frac{(\frac{q}{p})^n - (\frac{q}{p})^{a+b}}{1-(\frac{q}{p})^{a+b}}$$</div>
-<p>And if we substitute <span class="math">\(n=a\)</span>, we can then factor out a <span class="math">\(\frac{q}{p}^{a+b}\)</span> from the numerator and denominator and we'll get the probability of ruin for player A when his wealth is a.</p>
-<div class="math">$$P_a=\frac{1 - \frac{p}{q}^b}{1-\frac{p}{q}^{a+b}}$$</div>
-<p>Which is our answer! That's quite a bit of math, but laid out step by step with explanations it's very straightforward. Now that we've got our solution, let's build some intuition around that last equation and simulate some gambling scenarios.</p>
-<h2>Intuition and moral of The Gambler's Ruin</h2>
-<p>The earliest mention of this problem was in a letter from Blaise Pascal to Pierre Fermat in 1656. That was obviously pre-Vegas. Today, the problem is often used as a cautionary tale for anyone naive enough to think they can beat the house on their next trip to the casino. As we'll see with some simulations, as long as the odds are slightly not in your favor, you will always go broke. And when you're playing against a rich opponent, like say, a deep pocketed casino, you're basically fucked.</p>
-<p>So moral of the story: If you're playing a gambling game like the one described in this problem, quit while (and if) you're ahead. Roulette is probably the most relevant game to this problem. Roulette has nearly symmetric payout odds, with the odds just slightly tipped towards the house. If you go to Vegas and play one dollar roulette, you will eventually go broke. The same is true for any game in the casino, except for poker.</p>
-<h2>Let's Simulate!</h2>
-<p>I find the best way to build intuition on a tough mathematical result is to run some simulations. We've got our solution for <span class="math">\(P_a\)</span> in terms of the win probabilities p and q and the total capital the players are currently at, which are a and b.</p>
-<p>So let's play around with these values. The formula is pretty easy to write in a programming language - I'll use R here.</p>
-<div class="highlight"><pre><span class="n">prob_ruin_a</span> <span class="o">&lt;-</span> <span class="n">function</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1"># probability of Player B winning is q</span>
-  <span class="n">q</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">p</span> <span class="c1"># since p + q have to = 1</span>
-
-  <span class="c1"># The ratio of q/p, which we used in the solution</span>
-  <span class="n">ratio</span> <span class="o">=</span> <span class="n">p</span><span class="o">/</span><span class="n">q</span>
-
-  <span class="c1"># Numerator of the solution</span>
-  <span class="n">num</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">ratio</span><span class="o">^</span><span class="n">b</span>
-
-  <span class="c1"># and Denominator</span>
-  <span class="n">den</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">ratio</span> <span class="o">^</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
-
-  <span class="k">return</span><span class="p">(</span><span class="n">num</span> <span class="o">/</span> <span class="n">den</span><span class="p">)</span>
-<span class="p">}</span>
-</pre></div>
-
-
-<p>Let's try a few values. First let's make the game only slightly in favor of player B but give him more and more wealth.</p>
-<div class="highlight"><pre><span class="n">b_wealth</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
-<span class="n">b_wealth</span> <span class="o">%&gt;%</span> <span class="n">map_dbl</span><span class="p">(</span><span class="n">prob_ruin_a</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="mf">0.499</span><span class="p">)</span>
-<span class="mf">0.5498341</span> <span class="mf">0.5994213</span> <span class="mf">0.7306926</span> <span class="mf">0.8711488</span> <span class="mf">0.9724110</span> <span class="mf">0.9966294</span>
-</pre></div>
-
-
-<p>We're giving almost equal odds. Player A will win the game 49.9% of the time. When they both start with $50, the chances of ruin for Player A not too bad at 55%. But even with Player B having $100, the probability of ruin for A is already at 73%, and if B has $1000 the probability of ruin is 99.7%! At $1000, Player B simply has too much in reserve for Player A to stand a chance.</p>
-<p>Using a bunch of values for Player B's wealth from $50 to $1000, we can see the probability of ruin for Player A increases exponentially.</p>
-<p><img alt="ProbabilityPlayerA" src="https://cloud.githubusercontent.com/assets/1427277/25469301/45030eb6-2ad0-11e7-8ab3-7a1ff2f88ca6.png" /></p>
-<p>And that's when the odds are almost even! Let's now keep Player A and Player B's wealth both at $50, but let's change p, the probability Player A has of winning a game.</p>
-<div class="highlight"><pre><span class="n">prob_p</span> <span class="o">&lt;-</span> <span class="n">seq</span><span class="p">(</span><span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">49</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">)</span>
-<span class="n">prob_ruins</span> <span class="o">&lt;-</span> <span class="n">prob_p</span> <span class="o">%&gt;%</span> <span class="n">map_dbl</span><span class="p">(</span><span class="n">prob_ruin_a</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">50</span><span class="p">)</span>
-<span class="n">data_frame</span><span class="p">(</span><span class="n">prob_p</span><span class="p">,</span> <span class="n">prob_ruins</span><span class="p">)</span> <span class="o">%&gt;%</span>
-  <span class="n">ggplot</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">prob_p</span><span class="p">,</span> <span class="n">prob_ruins</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_line</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;darkred&#39;</span><span class="p">)</span> <span class="o">+</span>
-  <span class="n">labs</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;Probability of Ruin for Player A&#39;</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;Probability of Player A winning a game (p)&#39;</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Both Players start with $50&#39;</span><span class="p">)</span> <span class="o">+</span>
-  <span class="n">theme_tech</span><span class="p">(</span><span class="s1">&#39;blog&#39;</span><span class="p">)</span> <span class="c1"># this is a ggplot theme I use specifically for this blog. get it at github.com/timabe/ggtech</span>
-</pre></div>
-
-
-<p><img alt="ProbabilityPlayerA_both50" src="https://cloud.githubusercontent.com/assets/1427277/25469482/47a27340-2ad1-11e7-9a30-4917b1510f86.png" /></p>
-<p>Yikes! Even if they have the same amount to begin with, even a slight unbalance in <span class="math">\(p/q\)</span> spells disaster for Player A. A 48% chance of winning a game leads to a 98% chance of ruin!</p>
-<h2>Conclusion</h2>
-<p>In conclusion, even if you think you are "lucky" or somehow naively believe you are skilled at games of chance, stay away from anything that resembles this problem in the real world.</p>
-<p>Hope you found the math easy to follow and let me know in the comments if you have any questions!</p>
-<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
-        linebreak = "false";
-
-    if (false) {
-        align = (screen.width < 768) ? "left" : align;
-        indent = (screen.width < 768) ? "0em" : indent;
-        linebreak = (screen.width < 768) ? 'true' : linebreak;
-    }
-
-    var mathjaxscript = document.createElement('script');
-    var location_protocol = (false) ? 'https' : document.location.protocol;
-    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
-    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-    mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
-        "MathJax.Hub.Config({" +
-        "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
-        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: '"+ align +"'," +
-        "    displayIndent: '"+ indent +"'," +
-        "    showMathMenu: true," +
-        "    messageStyle: 'normal'," +
-        "    tex2jax: { " +
-        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
-        "        displayMath: [ ['$$','$$'] ]," +
-        "        processEscapes: true," +
-        "        preview: 'TeX'," +
-        "    }, " +
-        "    'HTML-CSS': { " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
-        "    }, " +
-        "}); " +
-        "if ('default' !== 'default') {" +
-            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-        "}";
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
-}
-</script><p><a href="http://timabe.me/posts/2017/04/gamblers_ruin/#disqus_thread">Comments</a>.</p>                </article>
+<p>tags: <a href="http://timabe.me/tag/baseball/">baseball</a><a href="http://timabe.me/tag/data/">data</a></p></footer><!-- /.post-info --><p>I think it was two years ago when I first decided I wanted Jose Altuve on my team. My team is, of course, the Oakland A's. At that point, the A's were just beginning their rebuilding process and Altuve was hitting .313/.353/.459, a very good slash line. However, it was his hustle that inspired me to buy into the legend. That along with his . . . stature. As someone who is 5'7", I've always rooted for the little guy. Spud Webb, Muggsy Bogues, Messi, and of course the man with the "Hold my own" tattoo, Allen Iverson. These guys had the skills to overcome the size disadvantage. It seemed miraculous.</p>
+<p>Today, two years later, we learned that Jose Altuve (sadly, never traded to the A's like I hoped) won the American League MVP award. The runner up was this gentleman pictured next to him.</p>
+<p><img alt="Altuve and Judge" src="https://user-images.githubusercontent.com/1427277/32929747-32b20a98-cb28-11e7-9589-9d78de690aea.png" /></p>
+<p>Altuve's slash line was .346/.410/.547 in 2017. He hit 24 home runs and chipped in 81 RBIs and he helped his team, the Houston Astros, win their first ever World Series with some dramatic performances in the playoffs. Serious MVP numbers.</p>
+<p>But what should inspire every undersized baseball player out there, is this:</p>
+<p><img alt="MLB Heights" src="https://user-images.githubusercontent.com/1427277/32928627-ddc138f8-cb20-11e7-9f13-4b9c7a3c1ff6.png" /></p>
+<p>Altuve is <strong>the</strong> shortest player in all of Major League Baseball.</p>
+<p>The conventional wisdom says the best athletes tend to be the tallest and largest. Altuve bucks that trend, but he isn't the only one. The same year I wished for an Altuve trade to the A's, we saw an undersized point guard on the Golden State Warriors win the MVP award. In that same year we also saw a 5'7" striker win the the Ballon d'Or in Soccer.</p>
+<p>I ran some scrapers online to capture player heights in the MLB, NBA, and across the top professional leagues in soccer. We've already seen that Altuve falls in the bottom 1% of his league's height distribution. Let's look at how the 2015 MVPs faired in their respective sports:</p>
+<p><img alt="Steph" src="https://user-images.githubusercontent.com/1427277/32928630-e14a61c0-cb20-11e7-947f-53ad43d9e471.png" /></p>
+<p><img alt="Messi" src="https://user-images.githubusercontent.com/1427277/32928633-e483bea4-cb20-11e7-9260-63f4cbbc10d5.png" /></p>
+<p>While not as dramatic as Altuve, given that we're not expected to see shorter players be at the top of their game this is pretty amazing.</p>
+<p>So congratulations to Jose Altuve and all the other vertically challenged folks who seem to be on top of their respective sports these days!</p><p><a href="http://timabe.me/posts/2017/11/short-people/#disqus_thread">Comments</a>.</p>                </article>
             </aside><!-- /#featured -->
                 <section id="content" class="body">
                     <hr />
                     <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h3><a href="http://timabe.me/posts/2017/04/gamblers_ruin/" rel="bookmark"
+                           title="Permalink to The Gambler's Ruin: A simple explanation and derivation">The Gambler's Ruin: A simple explanation and derivation</a></h3>
+                </header>
+
+                <div class="entry-content">
+                <p>I've recently had the itch to break out some textbooks and do a little math. Don't ask me where that desire comes from, but I find working on math problems fun. A few years ago I bought a probability textbook, which I learned about through an Amazon review ...</p>
+                <a class="readmore" href="http://timabe.me/posts/2017/04/gamblers_ruin/">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
